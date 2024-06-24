@@ -8,7 +8,7 @@ export default function Home() {
       </div>
       <style>{`
       .bg-custom {
-        background-image: url('https://searchengineland.com/wp-content/seloads/2020/03/code-SS_634574354-1920x1080-1.jpg');
+        background-image: url("https://searchengineland.com/wp-content/seloads/2020/03/code-SS_634574354-1920x1080-1.jpg");
         background-size: cover;
         background-position: center;
       }
