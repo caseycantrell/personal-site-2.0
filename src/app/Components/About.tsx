@@ -1,4 +1,8 @@
-const About: React.FC<{ onClick: (index: number) => void }> = ({ onClick }) => {
+interface AboutProps {
+  onClick: (index: number) => void
+}
+
+const About = ({ onClick }: AboutProps) => {
     return (
       <div className="w-full h-full text-black flex flex-col items-start p-6 space-y-4">
         <p className="text-5xl font-bold mb-8">About</p>
