@@ -2,25 +2,30 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import About from './About'
+import Skills from './Skills'
+import Contact from './Contact'
+import Portfolio from './Portfolio'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
+  const [contentIndex, setContentIndex] = useState(0)
 
-  const handleClick = () => {
+  const handleClick = (index: number) => {
+    setContentIndex(index)
     setIsFlipped(!isFlipped)
   }
 
+  const contents = [
+    <About key={0} onClick={handleClick} />,
+    <Skills key={1} onClick={handleClick} />,
+    <Portfolio key={2} onClick={handleClick} />,
+    <Contact key={3} onClick={handleClick} />,
+  ]
+
   return (
-    <div className="container">
-      <motion.div
-        className="square"
-        onClick={handleClick}
-        style={{
-          width: '500px',
-          height: '500px',
-          perspective: '1000px',
-        }}
-      >
+    <div className="">
+      <motion.div className="square">
         <motion.div
           className="inner-square"
           animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -38,14 +43,19 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'white',
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
+              backdropFilter: 'blur(5px)',
+              WebkitBackdropFilter: 'blur(10px)', // For Safari support
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              borderRadius: '10px'
             }}
           >
-            Front
+            {contents[contentIndex]}
           </motion.div>
           <motion.div
             className="back"
@@ -53,27 +63,44 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'green',
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
+              backdropFilter: 'blur(5px)',
+              WebkitBackdropFilter: 'blur(10px)', // For Safari support
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              borderRadius: '10px',
               transform: 'rotateY(180deg)',
             }}
           >
-            Back
+            {contents[contentIndex]}
           </motion.div>
         </motion.div>
       </motion.div>
-      <style jsx>{`
+      <style>{`
         .container {
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           height: 100vh;
         }
-        .square {
-          cursor: pointer;
+        @media (max-width: 1023px) {
+          .square {
+            width: 100vw;
+            height: 100vh;
+            perspective: 20000px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .square {
+            width: 50vw;
+            height: 50vh;
+            perspective: 2000px;
+          }
         }
       `}</style>
     </div>

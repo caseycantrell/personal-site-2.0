@@ -4,8 +4,8 @@ import ClickyBox from "./Components/ClickyBox"
 
 export default function Home() {
   return (
-    <main className="flex h-screen flex-col lg:items-center lg:justify-center bg-custom">
-      <div className="">
+    <main className="bg-custom">
+      <div className="flex h-screen flex-col lg:items-center lg:justify-center ">
         <ClickyBox />
       </div>
       <style jsx>{`
