@@ -10,7 +10,7 @@ export default function Home() {
       </div>
       <style jsx>{`
       .bg-custom {
-        background-image: url('/code.jpg');
+        background-image: url('/images/code.jpg');
         background-size: cover;
         background-position: center;
       }

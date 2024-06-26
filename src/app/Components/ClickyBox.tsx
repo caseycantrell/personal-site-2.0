@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Splash from './Splash'
 import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
@@ -17,10 +18,11 @@ const ClickyBox: React.FC = () => {
   }
 
   const contents = [
-    <About key={0} onClick={handleClick} />,
-    <Skills key={1} onClick={handleClick} />,
-    <Portfolio key={2} onClick={handleClick} />,
-    <Contact key={3} onClick={handleClick} />,
+    <Splash key={0} onClick={handleClick} />,
+    <About key={1} onClick={handleClick} />,
+    <Skills key={2} onClick={handleClick} />,
+    <Portfolio key={3} onClick={handleClick} />,
+    <Contact key={4} onClick={handleClick} />,
   ]
 
   return (
