@@ -90,17 +90,22 @@ const ClickyBox: React.FC = () => {
           align-items: center;
           height: 100vh;
         }
-        @media (max-width: 1023px) {
-          .square {
-            width: 100vw;
-            height: 100vh;
-            perspective: 20000px;
-          }
+        .square {
+          width: 100vw;
+          height: 100vh;
+          perspective: 2000px;
         }
         @media (min-width: 1024px) {
           .square {
+            width: 65vw;
+            height: 75vh;
+            perspective: 2000px;
+          }
+        }
+        @media (min-width: 1536px) {
+          .square {
             width: 50vw;
-            height: 50vh;
+            height: 60vh;
             perspective: 2000px;
           }
         }
