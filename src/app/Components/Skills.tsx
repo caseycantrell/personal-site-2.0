@@ -4,12 +4,16 @@ interface SkillsProps {
   
 const Skills = ({ onClick }: SkillsProps) => {
     return (
-      <div className="w-full h-full text-black flex flex-col items-start p-6 space-y-4">
-        <p className="text-5xl font-bold mb-8">Skills</p>
-        <button onClick={() => onClick(1)}>Go to my bio section</button>
-        <button onClick={() => onClick(3)}>Go to my portfolio section</button>
-        <button onClick={() => onClick(4)}>Go to my contact section</button>
-        <button onClick={() => onClick(0)}>Go home</button>
+      <div className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black">
+        <div className="col-span-5">
+          <p className="text-5xl font-bold mb-8 ">Skills</p>
+        </div>
+        <div className="grid grid-cols-2 gap-y-4 lg:flex lg:flex-col py-4 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-lg lg:text-xl font-semibold">
+          <button onClick={() => onClick(1)}>About</button>
+          <button onClick={() => onClick(3)}>Portfolio</button>
+          <button onClick={() => onClick(4)}>Contact</button>
+          <button onClick={() => onClick(0)}>Home</button>
+        </div>
       </div>
     )
   }
