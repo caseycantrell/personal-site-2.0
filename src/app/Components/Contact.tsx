@@ -10,7 +10,7 @@ const Contact = ({ onClick }: ContactProps) => {
         <div className="col-span-5">
           <div className="flex flex-col lg:grid lg:grid-cols-3 h-full items-center">
             <div className="col-span-2">
-              <p className="px-12 lg:px-16 mt-6 lg:mt-0 text-2xl lg:text-6xl font-extrabold">Thanks for stopping by. Feel free to reach out and I'll get in touch with you expeditiously.</p>
+              <p className="px-12 lg:px-24 mt-2 lg:mt-0 text-2xl lg:text-6xl font-extrabold">Thanks for stopping by. Feel free to reach out and I'll get in touch with you expeditiously.</p>
             </div>
             <div className="flex flex-col col-span-1 space-y-10 -ml-4 lg:ml-4 mt-12 lg:mt-0">
               <div className="flex flex-row items-center">
@@ -37,11 +37,11 @@ const Contact = ({ onClick }: ContactProps) => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-y-4 lg:flex lg:flex-col py-4 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-lg lg:text-xl font-semibold">
-          <button onClick={() => onClick(1)}>About</button>
-          <button onClick={() => onClick(2)}>Skills</button>
-          <button onClick={() => onClick(3)}>Portfolio</button>
-          <button onClick={() => onClick(0)}>Home</button>
+        <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
+          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
+          <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Portfolio</button>
+          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
         </div>
       </div>
     )
