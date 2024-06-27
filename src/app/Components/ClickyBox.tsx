@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Splash from './Splash'
+import Home from './Home'
 import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
@@ -18,7 +18,7 @@ const ClickyBox: React.FC = () => {
   }
 
   const contents = [
-    <Splash key={0} onClick={handleClick} />,
+    <Home key={0} onClick={handleClick} />,
     <About key={1} onClick={handleClick} />,
     <Skills key={2} onClick={handleClick} />,
     <Portfolio key={3} onClick={handleClick} />,
@@ -45,10 +45,9 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.6)',
-              backdropFilter: 'blur(5px)',
-              WebkitBackdropFilter: 'blur(10px)', // For Safari support
-              border: '1px solid rgba(255, 255, 255, 0.3)',
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              backdropFilter: 'blur(1px)',
+              WebkitBackdropFilter: 'blur(1px)', // For Safari support
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               backfaceVisibility: 'hidden',
               display: 'flex',
@@ -65,10 +64,9 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.6)',
-              backdropFilter: 'blur(5px)',
-              WebkitBackdropFilter: 'blur(10px)', // For Safari support
-              border: '1px solid rgba(255, 255, 255, 0.3)',
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              backdropFilter: 'blur(1px)',
+              WebkitBackdropFilter: 'blur(1px)', // For Safari support
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               backfaceVisibility: 'hidden',
               display: 'flex',
@@ -91,21 +89,14 @@ const ClickyBox: React.FC = () => {
           height: 100vh;
         }
         .square {
-          width: 100vw;
-          height: 100vh;
+          width: 100dvw;
+          height: 100dvh;
           perspective: 2000px;
         }
         @media (min-width: 1024px) {
           .square {
-            width: 65vw;
-            height: 75vh;
-            perspective: 2000px;
-          }
-        }
-        @media (min-width: 1536px) {
-          .square {
-            width: 50vw;
-            height: 60vh;
+            width: 1200px;
+            height: 700px;
             perspective: 2000px;
           }
         }
