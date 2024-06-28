@@ -2,11 +2,11 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Home from './Home'
+// import Home from './Home'
 import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
-import Portfolio from './Portfolio'
+import Projects from './Projects'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
@@ -18,11 +18,10 @@ const ClickyBox: React.FC = () => {
   }
 
   const contents = [
-    <Home key={0} onClick={handleClick} />,
-    <About key={1} onClick={handleClick} />,
-    <Skills key={2} onClick={handleClick} />,
-    <Portfolio key={3} onClick={handleClick} />,
-    <Contact key={4} onClick={handleClick} />,
+    <About key={0} onClick={handleClick} />,
+    <Skills key={1} onClick={handleClick} />,
+    <Projects key={2} onClick={handleClick} />,
+    <Contact key={3} onClick={handleClick} />,
   ]
 
   return (

@@ -43,7 +43,7 @@ const Skills = ({ onClick }: SkillsProps) => {
             <p className="text-xl font-semibold ml-6 lg:ml-1">Agile<span className="hidden lg:inline">,</span></p>
             <p className="text-xl font-semibold ml-6 lg:ml-1">Scrum</p>
           </div>
-        </div>
+      </div>
         <div className="absolute top-6 right-7 hidden lg:flex flex-row items-center gap-x-4">
           <motion.a whileHover={{ scale: 1.2 }} transition={{ duration: 0.5, type: "spring", damping: 10, mass: 0.75, stiffness: 100 }} href={"tel:+18167187749"} className="cursor-pointer">
             <Image src={'/icons/mail.png'} width={30} height={30} alt='LinkedIn'/>
@@ -59,10 +59,10 @@ const Skills = ({ onClick }: SkillsProps) => {
           </motion.a>
         </div>
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Portfolio</button>
-          <button onClick={() => onClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
-          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
+          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
+          <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
+          {/* <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button> */}
         </div>
       </div>
     )
