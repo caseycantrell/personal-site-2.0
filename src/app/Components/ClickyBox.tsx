@@ -6,7 +6,7 @@ import Home from './Home'
 import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
-import Portfolio from './Portfolio'
+import Projects from './Projects'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
@@ -21,7 +21,7 @@ const ClickyBox: React.FC = () => {
     <Home key={0} onClick={handleClick} />,
     <About key={1} onClick={handleClick} />,
     <Skills key={2} onClick={handleClick} />,
-    <Portfolio key={3} onClick={handleClick} />,
+    <Projects key={3} onClick={handleClick} />,
     <Contact key={4} onClick={handleClick} />,
   ]
 
