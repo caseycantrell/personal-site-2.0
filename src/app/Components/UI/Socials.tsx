@@ -11,7 +11,7 @@ const hoverTransition = {
 
 const Socials = () => {
     return (
-      <div className="absolute top-6 right-7 hidden lg:flex flex-row items-center gap-x-4">
+      <div className="absolute top-4 right-4 hidden lg:flex flex-row items-center gap-x-4">
         <motion.a whileHover={{ scale: 1.2 }} transition={hoverTransition} href={"tel:+18167187749"} className="cursor-pointer">
           <Image src={'/icons/email.png'} width={30} height={30} alt='LinkedIn'/>
         </motion.a>
