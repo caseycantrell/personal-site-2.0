@@ -19,6 +19,8 @@ const Contact = ({ onClick }: ContactProps) => {
   const [ phoneHovered, setPhoneHovered] = useState(false)
   const [ emailHovered, setEmailHovered] = useState(false)
   const [ locationHovered, setLocationHovered] = useState(false)
+  const [ linkedInHovered, setLinkedInHovered] = useState(false)
+  const [ gitHubHovered, setGitHubHovered] = useState(false)
 
     return (
       <div className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
@@ -62,6 +64,30 @@ const Contact = ({ onClick }: ContactProps) => {
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Email:</p>
                   <p className="text-md">cantrellcasey@gmail.com</p>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/cantrellcasey/" target="_blank" onMouseEnter={() => setLinkedInHovered(true)} onMouseLeave={() => setLinkedInHovered(false)} className="flex flex-row items-center cursor-pointer">
+                <motion.div
+                  animate={{ scale: linkedInHovered ? 1.25 : 1 }}
+                  transition={hoverTransition}
+                >
+                  <Image src={'/icons/linkedin.png'} width={35} height={35} alt='LinkedIn' />
+                </motion.div>
+                <div className="flex flex-col ml-6">
+                  <p className="text-lg font-semibold">LinkedIn:</p>
+                  <p className="text-md">Casey Cantrell</p>
+                </div>
+              </a>
+              <a href="https://github.com/caseycantrell" target="_blank" onMouseEnter={() => setGitHubHovered(true)} onMouseLeave={() => setGitHubHovered(false)} className="flex flex-row items-center cursor-pointer">
+                <motion.div
+                  animate={{ scale: gitHubHovered ? 1.25 : 1 }}
+                  transition={hoverTransition}
+                >
+                  <Image src={'/icons/github.png'} width={35} height={35} alt='GitHub' />
+                </motion.div>
+                <div className="flex flex-col ml-6">
+                  <p className="text-lg font-semibold">GitHub:</p>
+                  <p className="text-md">caseycantrell</p>
                 </div>
               </a>
             </div>

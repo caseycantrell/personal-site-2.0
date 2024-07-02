@@ -17,27 +17,112 @@ const hoverTransition = {
   stiffness: 100 
 }
 
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const fallInVariants = {
+  initial: { y: -60, opacity: 0 },
+  animate: { 
+    y: 0, 
+    opacity: 1, 
+    transition: { 
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+      mass: 0.75,
+      duration: 0.75,
+      opacity: { 
+        duration: 0.75, ease: "easeInOut" 
+      }
+    }
+  }
+}
+
 const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture }: ProjectShowProps) => {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center p-16">
-      <p className="text-6xl font-extrabold">{title}</p>
-      <p className="text-lg font-semibold mt-8">
+    <motion.div 
+      key={title}
+      initial="initial"
+      animate="animate"
+      variants={containerVariants}
+      className="w-screen lg:w-full h-full flex flex-col items-center justify-center p-8 lg:p-16"
+    >
+      <motion.p 
+        variants={fallInVariants} 
+        className="text-4xl lg:text-6xl font-extrabold"
+      >
+        {title}
+      </motion.p>
+      <motion.p 
+        variants={fallInVariants} 
+        className="flex flex-row items-center justify-center text-sm lg:text-lg font-semibold mt-0 h-28"
+      >
         {description}
-      </p>
-      <div className="mt-6">
-        <Image src={previewPicture} width={300} height={300} alt="Project Image" placeholder="blur" blurDataURL={previewPicture} />
-      </div>
-      <div className="flex flex-row items-center gap-x-6 mt-6">
-        <motion.a whileHover={{ scale: 1.15 }} transition={hoverTransition} href={siteLink} className="cursor-pointer" target="_blank">
-          <Image src={'/icons/link.png'} width={35} height={35} alt="Link" />
-        </motion.a>
-        <motion.a whileHover={{ scale: 1.15 }} transition={hoverTransition} href={githubLink} className="cursor-pointer" target="_blank">
-          <Image src={'/icons/github.png'} width={35} height={35} alt="Link" />
-        </motion.a>
-      </div>
-    </div>
+      </motion.p>
+      <motion.div 
+        variants={fallInVariants} 
+        className="mt-2 relative flex justify-center project-image-container"
+      >
+        <Image 
+          src={previewPicture} 
+          className="rounded-md"
+          layout="fill" 
+          style={{ objectFit: 'cover' }}  
+          alt="Project Image" 
+          placeholder="blur" 
+          blurDataURL={previewPicture}  
+        />
+      </motion.div>
+      <motion.div  
+        variants={fallInVariants}
+        className="flex flex-row items-center gap-x-6 mt-8"
+      >
+        <div className="flex flex-col items-center">
+          <motion.a 
+            whileHover={{ scale: 1.15 }} 
+            transition={hoverTransition} 
+            href={siteLink} 
+            className="cursor-pointer flex flex-col items-center" 
+            target="_blank"
+          >
+            <Image src={'/icons/link.png'} width={40} height={40} alt="Link" />
+          </motion.a>
+          <motion.p variants={fallInVariants} className="font-semibold mt-1">site</motion.p>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <motion.a 
+            whileHover={{ scale: 1.15 }} 
+            transition={hoverTransition} 
+            href={githubLink} 
+            className="cursor-pointer " 
+            target="_blank"
+          >
+            <Image src={'/icons/github.png'} width={40} height={40} alt="GitHub" className="butt"/>
+          </motion.a>
+          <motion.p variants={fallInVariants} className="font-semibold mt-1">repo</motion.p>
+        </div>
+      </motion.div>
+      <style>{`
+        .project-image-container {
+          width: 425px;
+          height: 225px;
+        }          
+        @media (max-width: 1024px) {
+          .project-image-container {
+            width: 325px;
+            height: 175px;
+          }
+        }
+      `}</style>
+    </motion.div>
   )
 }
-  
+
 export default ProjectShow
-  

@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import Socials from "./UI/Socials"
 import ProjectShow from './ProjectShow'
-import SpyntaxPicture from "../../../public/images/projects/spyntax.png"
-import { StaticImageData } from 'next/image'
 
 interface ProjectsProps {
   onClick: (index: number) => void
@@ -10,9 +8,13 @@ interface ProjectsProps {
 
 const Projects = ({ onClick }: ProjectsProps) => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
+  const [showProjectMenu, setShowProjectMenu] = useState<boolean>(false)
 
   const handleProjectClick = (index: number) => {
     setSelectedProject(index)
+    if (showProjectMenu) {
+      setShowProjectMenu(false)
+    }
   }
 
   const projectDetails: {
@@ -33,8 +35,26 @@ const Projects = ({ onClick }: ProjectsProps) => {
 
   return (
     <div className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-      <div className="grid grid-cols-8 col-span-5 justify-center">
-        <div className="flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-7">
+      <div className="flex flex-col lg:grid lg:grid-cols-8 col-span-5 justify-center relative">
+
+         {/* mobile menu */}
+         <div className="flex flex-row lg:hidden justify-center" onClick={() => setShowProjectMenu(!showProjectMenu)}>
+          <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg'>Select Project</p>
+        </div>
+        {showProjectMenu && (
+          <div className='w-screen justify-center grid grid-cols-2 border border-black bg-gray-300 rounded-md py-4 gap-y-4 pl-8 text-lg font-semibold absolute top-12 z-10'>
+            <p onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</p>
+            <p onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</p>
+            <p onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</p>
+            <p onClick={() => handleProjectClick(3)} className="cursor-pointer">Beatboi</p>
+            <p onClick={() => handleProjectClick(4)} className="cursor-pointer">Memeboi</p>
+            <p onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</p>
+            <p onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</p>
+          </div>
+        )}
+        {/* end mobile menu */}
+
+        <div className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-7">
           <p onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</p>
           <p onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</p>
           <p onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</p>
@@ -43,10 +63,10 @@ const Projects = ({ onClick }: ProjectsProps) => {
           <p onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</p>
           <p onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</p>
         </div>
-        <div className="col-span-6">
+        <div className="lg:col-span-6">
           {selectedProject !== null ? <ProjectShow title={projectDetails[selectedProject].title} description={projectDetails[selectedProject].description} siteLink={projectDetails[selectedProject].siteLink} githubLink={projectDetails[selectedProject].githubLink} previewPicture={projectDetails[selectedProject].previewPicture} /> : 
             <div className='w-full h-full flex flex-col justify-center items-center'>
-              <p className='text-4xl font-bold'>Projects</p>
+              <p className='text-6xl font-bold flex text-center mt-16 lg:mt-0'>Projects</p>
             </div>
           }
         </div>
