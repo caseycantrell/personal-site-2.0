@@ -21,7 +21,7 @@ const containerVariants = {
   initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.08
     }
   }
 }
@@ -36,7 +36,7 @@ const fallInVariants = {
       stiffness: 100,
       damping: 10,
       mass: 0.75,
-      duration: 0.75,
+      duration: 0.1,
       opacity: { 
         duration: 0.75, ease: "easeInOut" 
       }
@@ -55,7 +55,7 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
     >
       <motion.p 
         variants={fallInVariants} 
-        className="text-4xl lg:text-6xl font-extrabold"
+        className="text-4xl font-extrabold"
       >
         {title}
       </motion.p>
@@ -65,7 +65,9 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
       >
         {description}
       </motion.p>
-      <motion.div 
+      <motion.a 
+        href={siteLink} 
+        target="_blank"
         variants={fallInVariants} 
         className="mt-2 relative flex justify-center project-image-container"
       >
@@ -78,35 +80,35 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
           placeholder="blur" 
           blurDataURL={previewPicture}  
         />
-      </motion.div>
+      </motion.a>
       <motion.div  
         variants={fallInVariants}
-        className="flex flex-row items-center gap-x-6 mt-8"
+        className="flex flex-row items-center gap-x-16 lg:gap-x-6 mt-8"
       >
         <div className="flex flex-col items-center">
           <motion.a 
-            whileHover={{ scale: 1.15 }} 
+            whileHover={{ scale: 1.08 }} 
             transition={hoverTransition} 
             href={siteLink} 
             className="cursor-pointer flex flex-col items-center" 
             target="_blank"
           >
-            <Image src={'/icons/link.png'} width={40} height={40} alt="Link" />
+            <Image src={'/icons/link.png'} width={30} height={30} alt="Link" />
           </motion.a>
-          <motion.p variants={fallInVariants} className="font-semibold mt-1">site</motion.p>
+          <motion.p variants={fallInVariants} className="font-semibold text-sm">site</motion.p>
         </div>
 
         <div className="flex flex-col items-center">
           <motion.a 
-            whileHover={{ scale: 1.15 }} 
+            whileHover={{ scale: 1.08 }} 
             transition={hoverTransition} 
             href={githubLink} 
-            className="cursor-pointer " 
+            className="cursor-pointer flex flex-col items-center" 
             target="_blank"
           >
-            <Image src={'/icons/github.png'} width={40} height={40} alt="GitHub" className="butt"/>
+            <Image src={'/icons/github.png'} width={30} height={30} alt="GitHub" className="butt"/>
           </motion.a>
-          <motion.p variants={fallInVariants} className="font-semibold mt-1">repo</motion.p>
+          <motion.p variants={fallInVariants} className="font-semibold text-sm">repo</motion.p>
         </div>
       </motion.div>
       <style>{`

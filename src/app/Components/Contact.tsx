@@ -1,18 +1,11 @@
 import Image from "next/image"
 import Socials from "./UI/Socials"
 import { useState } from "react"
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { fadeInTransition, hoverTransition } from "./UI/Animations"
 
 interface ContactProps {
   onClick: (index: number) => void
-}
-
-const hoverTransition = { 
-  duration: 2, 
-  type: "spring", 
-  damping: 10, 
-  mass: 0.75, 
-  stiffness: 100 
 }
 
 const Contact = ({ onClick }: ContactProps) => {
@@ -23,7 +16,12 @@ const Contact = ({ onClick }: ContactProps) => {
   const [ gitHubHovered, setGitHubHovered] = useState(false)
 
     return (
-      <div className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
+    <AnimatePresence>
+      <motion.div      
+        initial="initial"
+        animate="animate"
+        variants={fadeInTransition} 
+        className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
         <div className="col-span-5">
           <div className="flex flex-col lg:grid lg:grid-cols-3 h-full items-center">
             <div className="col-span-2">
@@ -32,10 +30,10 @@ const Contact = ({ onClick }: ContactProps) => {
             <div className="flex flex-col col-span-1 space-y-10 -ml-4 lg:ml-4 mt-12 lg:mt-0">
               <a href="https://www.google.com/maps/place/Austin,+TX/" target="_blank" onMouseEnter={() => setLocationHovered(true)} onMouseLeave={() => setLocationHovered(false)} className="flex flex-row items-center">
                 <motion.div
-                  animate={{ scale: locationHovered ? 1.25 : 1 }}
+                  animate={{ scale: locationHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                <Image src={'/icons/locationdark.png'} width={35} height={35} alt='Pin'/>
+                <Image src={'/icons/locationdark.png'} width={40} height={40} alt='Pin'/>
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Location:</p>
@@ -44,10 +42,10 @@ const Contact = ({ onClick }: ContactProps) => {
               </a>
               <a href="tel:+18167187749" onMouseEnter={() => setPhoneHovered(true)} onMouseLeave={() => setPhoneHovered(false)} className="flex flex-row items-center cursor-pointer">
                 <motion.div
-                    animate={{ scale: phoneHovered ? 1.25 : 1 }}
+                    animate={{ scale: phoneHovered ? 1.1 : 1 }}
                     transition={hoverTransition}
                   >
-                  <Image src={'/icons/phonedark.png'} width={35} height={35} alt='Phone' />
+                  <Image src={'/icons/phonedark.png'} width={40} height={40} alt='Phone' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Call/Text:</p>
@@ -56,10 +54,10 @@ const Contact = ({ onClick }: ContactProps) => {
               </a>
               <a href="mailto:cantrellcasey@gmail.com" onMouseEnter={() => setEmailHovered(true)} onMouseLeave={() => setEmailHovered(false)} className="flex flex-row items-center cursor-pointer">
                 <motion.div
-                  animate={{ scale: emailHovered ? 1.25 : 1 }}
+                  animate={{ scale: emailHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                  <Image src={'/icons/mail.png'} width={35} height={35} alt='Email' />
+                  <Image src={'/icons/mail.png'} width={40} height={40} alt='Email' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Email:</p>
@@ -68,10 +66,10 @@ const Contact = ({ onClick }: ContactProps) => {
               </a>
               <a href="https://www.linkedin.com/in/cantrellcasey/" target="_blank" onMouseEnter={() => setLinkedInHovered(true)} onMouseLeave={() => setLinkedInHovered(false)} className="flex flex-row items-center cursor-pointer">
                 <motion.div
-                  animate={{ scale: linkedInHovered ? 1.25 : 1 }}
+                  animate={{ scale: linkedInHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                  <Image src={'/icons/linkedin.png'} width={35} height={35} alt='LinkedIn' />
+                  <Image src={'/icons/linkedin.png'} width={40} height={40} alt='LinkedIn' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">LinkedIn:</p>
@@ -80,10 +78,10 @@ const Contact = ({ onClick }: ContactProps) => {
               </a>
               <a href="https://github.com/caseycantrell" target="_blank" onMouseEnter={() => setGitHubHovered(true)} onMouseLeave={() => setGitHubHovered(false)} className="flex flex-row items-center cursor-pointer">
                 <motion.div
-                  animate={{ scale: gitHubHovered ? 1.25 : 1 }}
+                  animate={{ scale: gitHubHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                  <Image src={'/icons/github.png'} width={35} height={35} alt='GitHub' />
+                  <Image src={'/icons/github.png'} width={40} height={40} alt='GitHub' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">GitHub:</p>
@@ -100,7 +98,8 @@ const Contact = ({ onClick }: ContactProps) => {
           <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
           <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
         </div>
-      </div>
+      </motion.div>
+    </AnimatePresence>
     )
   }
   
