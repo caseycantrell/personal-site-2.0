@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Home from './Home'
 import About from './About'
@@ -11,11 +11,21 @@ import Projects from './Projects'
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
   const [contentIndex, setContentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   const handleClick = (index: number) => {
     setContentIndex(index)
     setIsFlipped(!isFlipped)
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const contents = [
     <Home key={0} onClick={handleClick} />,
@@ -30,8 +40,14 @@ const ClickyBox: React.FC = () => {
       <motion.div className="square">
         <motion.div
           className="inner-square"
-          animate={{ rotateY: isFlipped ? 180 : 0 }}
-          transition={{ duration: 0.6 }}
+          animate={{ [isMobile ? 'rotateY' : 'rotateX']: isFlipped ? 180 : 0 }}
+          transition={{ 
+            duration: 0.6, 
+            type: "spring", 
+            stiffness: 50, 
+            damping: 10, 
+            mass: 1
+          }}
           style={{
             position: 'relative',
             width: '100%',
@@ -48,7 +64,7 @@ const ClickyBox: React.FC = () => {
               backgroundColor: 'rgba(255, 255, 255, 0.5)',
               backdropFilter: 'blur(1px)',
               WebkitBackdropFilter: 'blur(1px)', // For Safari support
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
@@ -67,13 +83,13 @@ const ClickyBox: React.FC = () => {
               backgroundColor: 'rgba(255, 255, 255, 0.5)',
               backdropFilter: 'blur(1px)',
               WebkitBackdropFilter: 'blur(1px)', // For Safari support
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: '10px',
-              transform: 'rotateY(180deg)',
+              transform: isMobile ? 'rotateY(180deg)' : 'rotateX(180deg)',
             }}
           >
             {contents[contentIndex]}
