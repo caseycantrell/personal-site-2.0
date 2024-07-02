@@ -78,13 +78,9 @@ const Projects = ({ onClick }: ProjectsProps) => {
           </div>
           {showProjectMenu && (
             <div className='w-screen justify-center grid grid-cols-2 border border-black bg-gray-300 rounded-md py-4 gap-y-4 pl-8 text-lg font-semibold absolute top-12 z-10'>
-              <p onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</p>
-              <p onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</p>
-              <p onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</p>
-              <p onClick={() => handleProjectClick(3)} className="cursor-pointer">Beatboi</p>
-              <p onClick={() => handleProjectClick(4)} className="cursor-pointer">Memeboi</p>
-              <p onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</p>
-              <p onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</p>
+              {projectDetails.map((project, index) => (
+                <p onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</p>
+              ))}
             </div>
           )}
           {/* end mobile menu */}
@@ -94,13 +90,9 @@ const Projects = ({ onClick }: ProjectsProps) => {
             animate="animate"
             variants={containerVariants} 
             className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-7">
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(3)} className="cursor-pointer">Beatboi</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(4)} className="cursor-pointer">Memeboi</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</motion.p>
+              {projectDetails.map((project, index) => (
+                <motion.p variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
+              ))}
           </motion.div>
           <div className="lg:col-span-6">
             {selectedProject !== null ? <ProjectShow title={projectDetails[selectedProject].title} description={projectDetails[selectedProject].description} siteLink={projectDetails[selectedProject].siteLink} githubLink={projectDetails[selectedProject].githubLink} previewPicture={projectDetails[selectedProject].previewPicture} /> : 

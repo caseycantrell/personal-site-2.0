@@ -7,6 +7,7 @@ import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
 import Projects from './Projects'
+import { fadeInTransition } from './UI/Animations'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
@@ -36,7 +37,11 @@ const ClickyBox: React.FC = () => {
   ]
 
   return (
-    <div className="">
+    <motion.div     
+      initial="initial"
+      animate="animate"
+      variants={fadeInTransition}   
+    >
       <motion.div className="square">
         <motion.div
           className="inner-square"
@@ -117,7 +122,7 @@ const ClickyBox: React.FC = () => {
           }
         }
       `}</style>
-    </div>
+    </motion.div>
   )
 }
 
