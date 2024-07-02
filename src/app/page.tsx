@@ -1,12 +1,33 @@
 'use client'
 
+import { useEffect, useState } from "react"
 import ClickyBox from "./Components/ClickyBox"
+import Loading from "./Components/UI/Loading"
+
 
 export default function Home() {
+  const [ isBGImageLoaded, setIsBGImageLoaded ] = useState(false)
+
+  useEffect(() => {
+    const handleImageLoad = () => {
+      setIsBGImageLoaded(true)
+    }
+
+    const image = new Image()
+    image.src = '/images/code.jpg'
+    image.onload = handleImageLoad
+
+    return () => {
+      image.onload = null
+    }
+  }, [])
+
+  const isLoading = !isBGImageLoaded
+
   return (
     <main className="bg-custom frosted-glass">
       <div className="flex h-screen flex-col lg:items-center lg:justify-center ">
-        <ClickyBox />
+        { isLoading ? <Loading /> : <ClickyBox /> }
       </div>
       <style jsx>{`
       .bg-custom {

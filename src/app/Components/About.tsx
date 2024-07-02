@@ -26,8 +26,6 @@ const About = ({ onClick }: AboutProps) => {
               I thrive on creating harmonious solutions and orchestrating innovative projects.
             </p>
           </div>
-          {/* about content goes here */}
-
         </div>
         <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
