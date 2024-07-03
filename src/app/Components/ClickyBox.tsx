@@ -45,7 +45,7 @@ const ClickyBox: React.FC = () => {
     >
       <motion.div className="square">
         <motion.div
-          animate={{ [isMobile ? 'rotateY' : 'rotateX']: isFlipped ? 180 : 0 }}
+          animate={{ [isMobile ? 'rotateX' : 'rotateX']: isFlipped ? 180 : 0 }}
           transition={{ 
             duration: 0.6, 
             type: "spring", 
@@ -94,7 +94,7 @@ const ClickyBox: React.FC = () => {
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: '10px',
-              transform: isMobile ? 'rotateY(180deg)' : 'rotateX(180deg)',
+              transform: isMobile ? 'rotateX(180deg)' : 'rotateX(180deg)',
             }}
           >
             {contents[contentIndex]}
@@ -112,7 +112,7 @@ const ClickyBox: React.FC = () => {
         .square {
           width: 100dvw;
           height: 850px;
-          perspective: 2000px;
+          perspective: 5000px;
         }
         @media (min-width: 1024px) {
           .container {
@@ -127,7 +127,7 @@ const ClickyBox: React.FC = () => {
           .square {
             width: 1200px;
             height: 700px;
-            perspective: 2000px;
+            perspective: 5000px;
           }
         }
       `}</style>
