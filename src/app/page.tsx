@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import ClickyBox from "./Components/ClickyBox"
 import Loading from "./Components/UI/Loading"
 
-
 export default function Home() {
   const [ isBGImageLoaded, setIsBGImageLoaded ] = useState(false)
 

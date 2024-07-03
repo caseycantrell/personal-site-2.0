@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { fadeInTransition } from './UI/Animations'
 
 interface ProjectsProps {
-  onClick: (index: number) => void
+  handleNavClick: (index: number) => void
 }
 
-const Projects = ({ onClick }: ProjectsProps) => {
+const Projects = ({ handleNavClick }: ProjectsProps) => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
   const [showProjectMenu, setShowProjectMenu] = useState<boolean>(false)
 
@@ -78,13 +78,9 @@ const Projects = ({ onClick }: ProjectsProps) => {
           </div>
           {showProjectMenu && (
             <div className='w-screen justify-center grid grid-cols-2 border border-black bg-gray-300 rounded-md py-4 gap-y-4 pl-8 text-lg font-semibold absolute top-12 z-10'>
-              <p onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</p>
-              <p onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</p>
-              <p onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</p>
-              <p onClick={() => handleProjectClick(3)} className="cursor-pointer">Beatboi</p>
-              <p onClick={() => handleProjectClick(4)} className="cursor-pointer">Memeboi</p>
-              <p onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</p>
-              <p onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</p>
+              {projectDetails.map((project, index) => (
+                <p onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</p>
+              ))}
             </div>
           )}
           {/* end mobile menu */}
@@ -93,14 +89,10 @@ const Projects = ({ onClick }: ProjectsProps) => {
             initial="initial"
             animate="animate"
             variants={containerVariants} 
-            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-7">
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(0)} className="cursor-pointer">Spyntax</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(1)} className="cursor-pointer">Webflix</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(2)} className="cursor-pointer">COINdex</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(3)} className="cursor-pointer">Beatboi</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(4)} className="cursor-pointer">Memeboi</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(5)} className="cursor-pointer">G.O.R.S.</motion.p>
-            <motion.p variants={fallInVariants} onClick={() => handleProjectClick(6)} className="cursor-pointer">caseyrells</motion.p>
+            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-10">
+              {projectDetails.map((project, index) => (
+                <motion.p variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
+              ))}
           </motion.div>
           <div className="lg:col-span-6">
             {selectedProject !== null ? <ProjectShow title={projectDetails[selectedProject].title} description={projectDetails[selectedProject].description} siteLink={projectDetails[selectedProject].siteLink} githubLink={projectDetails[selectedProject].githubLink} previewPicture={projectDetails[selectedProject].previewPicture} /> : 
@@ -112,10 +104,10 @@ const Projects = ({ onClick }: ProjectsProps) => {
         </div>
         <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
-          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
-          <button onClick={() => onClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
+          <button onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
+          <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
+          <button onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
         </div>
       </motion.div>
     </AnimatePresence>

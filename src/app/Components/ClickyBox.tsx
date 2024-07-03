@@ -7,13 +7,14 @@ import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
 import Projects from './Projects'
+import { fadeInTransition } from './UI/Animations'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState(false)
   const [contentIndex, setContentIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
-  const handleClick = (index: number) => {
+  const handleNavClick = (index: number) => {
     setContentIndex(index)
     setIsFlipped(!isFlipped)
   }
@@ -28,15 +29,19 @@ const ClickyBox: React.FC = () => {
   }, [])
 
   const contents = [
-    <Home key={0} onClick={handleClick} />,
-    <About key={1} onClick={handleClick} />,
-    <Skills key={2} onClick={handleClick} />,
-    <Projects key={3} onClick={handleClick} />,
-    <Contact key={4} onClick={handleClick} />,
+    <Home key={0} handleNavClick={handleNavClick} />,
+    <About key={1} handleNavClick={handleNavClick} />,
+    <Skills key={2} handleNavClick={handleNavClick} />,
+    <Projects key={3} handleNavClick={handleNavClick} />,
+    <Contact key={4} handleNavClick={handleNavClick} />,
   ]
 
   return (
-    <div className="">
+    <motion.div     
+      initial="initial"
+      animate="animate"
+      variants={fadeInTransition}   
+    >
       <motion.div className="square">
         <motion.div
           className="inner-square"
@@ -61,7 +66,7 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(1px)',
               WebkitBackdropFilter: 'blur(1px)', // For Safari support
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
@@ -80,7 +85,7 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(1px)',
               WebkitBackdropFilter: 'blur(1px)', // For Safari support
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
@@ -117,7 +122,7 @@ const ClickyBox: React.FC = () => {
           }
         }
       `}</style>
-    </div>
+    </motion.div>
   )
 }
 

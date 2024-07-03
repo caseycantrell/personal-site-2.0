@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInTransition, hoverTransition } from "./UI/Animations"
 
 interface ContactProps {
-  onClick: (index: number) => void
+  handleNavClick: (index: number) => void
 }
 
-const Contact = ({ onClick }: ContactProps) => {
+const Contact = ({ handleNavClick }: ContactProps) => {
   const [ phoneHovered, setPhoneHovered] = useState(false)
   const [ emailHovered, setEmailHovered] = useState(false)
   const [ locationHovered, setLocationHovered] = useState(false)
@@ -33,7 +33,7 @@ const Contact = ({ onClick }: ContactProps) => {
                   animate={{ scale: locationHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                <Image src={'/icons/locationdark.png'} width={40} height={40} alt='Pin'/>
+                <Image src={'/icons/location.png'} width={40} height={40} alt='Pin'/>
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Location:</p>
@@ -45,7 +45,7 @@ const Contact = ({ onClick }: ContactProps) => {
                     animate={{ scale: phoneHovered ? 1.1 : 1 }}
                     transition={hoverTransition}
                   >
-                  <Image src={'/icons/phonedark.png'} width={40} height={40} alt='Phone' />
+                  <Image src={'/icons/phone.png'} width={40} height={40} alt='Phone' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Call/Text:</p>
@@ -93,10 +93,10 @@ const Contact = ({ onClick }: ContactProps) => {
         </div>
       <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
-          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
-          <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
+          <button onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
+          <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
+          <button onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
         </div>
       </motion.div>
     </AnimatePresence>
