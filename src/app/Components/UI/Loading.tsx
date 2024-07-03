@@ -1,11 +1,13 @@
 const Loading = () => {
   return (
-    <div className="flex flex-col h-full items-center justify-center">
-      <div className="loader"></div>
-      <p className="text-3xl font-bold mt-8">Loading...</p>
+    <div className="flex flex-col h-screen items-center justify-center">
+      <div className="loader relative">
+      <p className="text-3xl font-bold mt-8 ml-1">Loading</p>
+      </div>
       <style>{`
         .loader {
-          width: 90px;
+          z-index: 1;
+          width: 120px;
           height: 14px;
           --c:#fff 92%,#0000;
           background: 
