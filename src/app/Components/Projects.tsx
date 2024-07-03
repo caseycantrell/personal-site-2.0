@@ -79,7 +79,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           {showProjectMenu && (
             <div className='w-screen justify-center grid grid-cols-2 border border-black bg-gray-300 rounded-md py-4 gap-y-4 pl-8 text-lg font-semibold absolute top-12 z-10'>
               {projectDetails.map((project, index) => (
-                <p onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</p>
+                <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</p>
               ))}
             </div>
           )}
@@ -91,7 +91,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             variants={containerVariants} 
             className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-10">
               {projectDetails.map((project, index) => (
-                <motion.p variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
+                <motion.p key={index} variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
               ))}
           </motion.div>
           <div className="lg:col-span-6">
