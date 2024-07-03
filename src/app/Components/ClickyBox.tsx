@@ -112,7 +112,7 @@ const ClickyBox: React.FC = () => {
         .square {
           width: 100dvw;
           height: 850px;
-          perspective: 2000px;
+          perspective: 5000px;
         }
         @media (min-width: 1024px) {
           .container {
@@ -127,7 +127,7 @@ const ClickyBox: React.FC = () => {
           .square {
             width: 1200px;
             height: 700px;
-            perspective: 2000px;
+            perspective: 5000px;
           }
         }
       `}</style>
