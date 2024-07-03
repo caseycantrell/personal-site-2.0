@@ -59,7 +59,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
     { title: "COINdex", description: "Info, news, and statistics on popular cryptocurrencies. Made in React with Redux, Axios, Chart.js, Millify, Moment, Ant Design components, Bing API, and the Coinranking API.", siteLink: "https://coindex2.netlify.app/", githubLink: "https://github.com/caseycantrell/coindex2", previewPicture: "/images/projects/coindex.png" },
     { title: "Beatboi", description: "A clone of one of my favorite classic drum machines. Made with React.", siteLink: "https://beatboi.netlify.app/", githubLink: "https://github.com/caseycantrell/beatboi", previewPicture: "/images/projects/beatboi.png" },
     { title: "Memeboi", description: "A simple meme generator just for funsies. Best viewed/used on a mobile device. Made with React and the Imgflip API.", siteLink: "https://memeboi.netlify.app/", githubLink: "https://github.com/caseycantrell/meme-boi", previewPicture: "/images/projects/memeboi.png" },
-    { title: "GORS", description: "Static site for Goats Only Recording Studio. Made with HTML5 and Bootstrap.", siteLink: "https://www.goatsonlyrecordingstudio.com/", githubLink: "https://github.com/goatsonlyrecordingstudio/goatsonlyrecordingstudio.github.io", previewPicture: "/images/projects/gors.png" },
+    { title: "G.O.R.S.", description: "Static site for Goats Only Recording Studio. Made with HTML5 and Bootstrap.", siteLink: "https://www.goatsonlyrecordingstudio.com/", githubLink: "https://github.com/goatsonlyrecordingstudio/goatsonlyrecordingstudio.github.io", previewPicture: "/images/projects/gors.png" },
     { title: "Casey Rells", description: "My other website for the DJ work I do outside of Software Engineering. Made with HTML5 and Bootstrap.", siteLink: "https://www.caseyrells.com/", githubLink: "https://github.com/caseyrells/caseyrells.github.io", previewPicture: "/images/projects/caseyrells.png" },
   ]
 
@@ -89,9 +89,9 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             initial="initial"
             animate="animate"
             variants={containerVariants} 
-            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-10">
+            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-8">
               {projectDetails.map((project, index) => (
-                <motion.p key={index} variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
+                <motion.p whileHover={{ x: 10 }} key={index} variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer text-xl">{project.title}</motion.p>
               ))}
           </motion.div>
           <div className="lg:col-span-6">
@@ -103,11 +103,11 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           </div>
         </div>
         <Socials />
-        <div className="grid grid-cols-2 gap-y-6 lg:gap-y-4 lg:flex lg:flex-col py-6 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
-          <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
-          <button onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
+        <div className="grid grid-cols-2 gap-y-6 lg:gap-y-4 lg:flex lg:flex-col py-6 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
+          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
+          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
+          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
+          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
         </div>
       </motion.div>
     </AnimatePresence>

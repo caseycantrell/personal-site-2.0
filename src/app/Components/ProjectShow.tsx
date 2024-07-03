@@ -94,8 +94,8 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
             target="_blank"
           >
             <Image src={'/icons/link.png'} width={30} height={30} alt="Link" />
+            <motion.p variants={fallInVariants} className="font-semibold text-sm">site</motion.p>
           </motion.a>
-          <motion.p variants={fallInVariants} className="font-semibold text-sm">site</motion.p>
         </div>
 
         <div className="flex flex-col items-center">
@@ -107,8 +107,8 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
             target="_blank"
           >
             <Image src={'/icons/github.png'} width={30} height={30} alt="GitHub" className="butt"/>
+            <motion.p variants={fallInVariants} className="font-semibold text-sm">repo</motion.p>
           </motion.a>
-          <motion.p variants={fallInVariants} className="font-semibold text-sm">repo</motion.p>
         </div>
       </motion.div>
       <style>{`
