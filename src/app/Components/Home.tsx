@@ -14,22 +14,22 @@ const Home = ({ onClick }: HomeProps) => {
         animate="animate"
         variants={fadeInTransition} 
         className="w-screen lg:w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-      <div className="flex flex-col col-span-5 justify-center items-start font-extrabold ml-12 lg:ml-64 mt-16 lg:mt-0">
+      <div className="flex flex-col col-span-5 justify-center items-start ml-12 lg:ml-64 mt-16 lg:mt-0">
         <motion.p     
           initial="initial"
           animate="animate"
           variants={slideLeft} 
-          className="text-7xl lg:text-9xl">Casey</motion.p>
+          className="text-7xl lg:text-9xl font-extrabold">Casey</motion.p>
         <motion.p 
           initial="initial"
           animate="animate"
           variants={slideLeft} 
-          className="text-7xl lg:text-9xl lg:-mt-6 lg:ml-4">Cantrell</motion.p>
+          className="text-7xl lg:text-9xl font-extrabold lg:-mt-6 lg:ml-4">Cantrell</motion.p>
         <motion.p 
           initial="initial"
           animate="animate"
           variants={slideRight} 
-          className="text-xl lg:text-2xl lg:-mt-4 ml-8 lg:ml-64">Full-Stack Web Developer</motion.p>
+          className="text-xl lg:text-2xl lg:-mt-4 ml-8 lg:ml-64 font-bold">Full-Stack Web Developer</motion.p>
       </div>
       <Socials />
       <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
