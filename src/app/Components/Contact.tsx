@@ -25,7 +25,7 @@ const Contact = ({ handleNavClick }: ContactProps) => {
         <div className="col-span-5">
           <div className="flex flex-col lg:grid lg:grid-cols-3 h-full items-center">
             <div className="col-span-2">
-              <p className="px-12 lg:px-24 mt-2 lg:mt-0 text-2xl lg:text-6xl font-extrabold">Thanks for stopping by. Feel free to reach out and I'll get in touch with you expeditiously.</p>
+              <p className="px-12 lg:px-24 mt-2 lg:mt-0 text-2xl lg:text-6xl font-extrabold">Thanks for stopping by. Feel free to reach out and I&apos;ll get in touch with you expeditiously.</p>
             </div>
             <div className="flex flex-col col-span-1 space-y-10 -ml-4 lg:ml-4 mt-12 lg:mt-0">
               <a href="https://www.google.com/maps/place/Austin,+TX/" target="_blank" onMouseEnter={() => setLocationHovered(true)} onMouseLeave={() => setLocationHovered(false)} className="flex flex-row items-center">

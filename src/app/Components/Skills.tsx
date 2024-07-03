@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Socials from "./UI/Socials"
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInTransition } from "./UI/Animations"
@@ -25,26 +24,26 @@ const Skills = ({ handleNavClick }: SkillsProps) => {
             <div className="flex flex-col lg:flex-row items-start lg:items-end">
               <p className="font-extrabold text-2xl lg:text-4xl mr-1 ml-2 lg:ml-0">Frontend:</p>
               {frontEndSkills.map((skill, index) => (
-                  <p className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== frontEndSkills.length - 1 && ","}</span></p>
+                <p key={index} className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== frontEndSkills.length - 1 && ","}</span></p>
               ))}
             </div>
             <div className="flex flex-col lg:flex-row items-start lg:items-end">
               <p className="font-extrabold text-2xl lg:text-4xl mr-1 ml-2 lg:ml-0">Backend:</p>
               {backEndSkills.map((skill, index) => (
-                <p className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== backEndSkills.length - 1 && ","}</span></p>
+                <p key={index} className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== backEndSkills.length - 1 && ","}</span></p>
               ))}
             </div>
           </div>
           <div className="flex flex-col lg:flex-row items-start lg:items-end">
             <p className="font-extrabold text-2xl lg:text-4xl mr-1">Tools & Version Control:</p>
               {toolsSkills.map((skill, index) => (
-                <p className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== toolsSkills.length - 1 && ","}</span></p>
+                <p key={index} className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== toolsSkills.length - 1 && ","}</span></p>
               ))}
           </div>
           <div className="flex flex-col lg:flex-row items-start lg:items-end">
             <p className="font-extrabold text-2xl lg:text-4xl mr-1">Testing & Methodologies:</p>
               {testingSkills.map((skill, index) => (
-                 <p className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== testingSkills.length - 1 && ","}</span></p>
+                <p key={index} className="text-xl font-semibold ml-6 lg:ml-1">{skill}<span className="hidden lg:inline">{index !== testingSkills.length - 1 && ","}</span></p>
               ))}
           </div>
       </div>
