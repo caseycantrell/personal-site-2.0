@@ -40,11 +40,11 @@ const ClickyBox: React.FC = () => {
     <motion.div     
       initial="initial"
       animate="animate"
-      variants={fadeInTransition}   
+      variants={fadeInTransition}
+      className='container'
     >
       <motion.div className="square">
         <motion.div
-          className="inner-square"
           animate={{ [isMobile ? 'rotateY' : 'rotateX']: isFlipped ? 180 : 0 }}
           transition={{ 
             duration: 0.6, 
@@ -108,10 +108,12 @@ const ClickyBox: React.FC = () => {
           justify-content: center;
           align-items: center;
           height: 100vh;
+          width: 100vw;
+          overflow: scroll;
         }
         .square {
           width: 100dvw;
-          height: 100dvh;
+          height: 100vh;
           perspective: 2000px;
         }
         @media (min-width: 1024px) {

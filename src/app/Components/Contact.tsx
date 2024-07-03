@@ -57,7 +57,7 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                   animate={{ scale: emailHovered ? 1.1 : 1 }}
                   transition={hoverTransition}
                 >
-                  <Image src={'/icons/mail.png'} width={40} height={40} alt='Email' />
+                  <Image src={'/icons/email.png'} width={40} height={40} alt='Email' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-semibold">Email:</p>

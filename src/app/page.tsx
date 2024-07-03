@@ -46,7 +46,7 @@ export default function Home() {
         background: rgba(255, 255, 255, 0); 
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
-        z-index: -1; 
+        z-index: 0; 
       }
       `}</style>
     </main>

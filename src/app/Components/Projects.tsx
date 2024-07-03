@@ -103,7 +103,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           </div>
         </div>
         <Socials />
-        <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
+        <div className="grid grid-cols-2 gap-y-6 lg:gap-y-4 lg:flex lg:flex-col py-6 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
           <button onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
           <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
           <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
