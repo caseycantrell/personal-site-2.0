@@ -24,14 +24,14 @@ const About = ({ handleNavClick }: AboutProps) => {
           </div>
           <div className="">
             <p className="flex text-sm lg:text-lg font-semibold">
-              From the world of music to the realm of software engineering, 
-              my journey has been a unique blend of creativity and logic. 
-              While my days of live performances are behind me, I now orchestrate code with the same passion.
-            </p>
-            <p className="flex mt-8 text-sm lg:text-lg font-semibold">
               As a former musician turned software engineer, I bring a distinctive perspective to problem-solving, 
               finding rhythm and flow in even the most complex challenges. Swapping melodies for algorithms, 
               I thrive on creating harmonious solutions and orchestrating innovative projects.
+            </p>
+            <p className="flex mt-8 text-sm lg:text-lg font-semibold">
+              From the world of music to the realm of software engineering, 
+              my journey has been a unique blend of creativity and logic. 
+              While my days of live performances are behind me, I now orchestrate code with the same passion.
             </p>
           </div>
         </div>
