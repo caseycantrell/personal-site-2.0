@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <main className="bg-custom frosted-glass">
-      <div className="flex flex-col lg:items-center lg:justify-center ">
+      <div className="flex flex-col lg:items-center lg:justify-center">
         { isLoading ? <Loading /> : <ClickyBox /> }
       </div>
       <style jsx>{`
