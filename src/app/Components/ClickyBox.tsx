@@ -14,7 +14,7 @@ const ClickyBox: React.FC = () => {
   const [contentIndex, setContentIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
-  const handleClick = (index: number) => {
+  const handleNavClick = (index: number) => {
     setContentIndex(index)
     setIsFlipped(!isFlipped)
   }
@@ -29,11 +29,11 @@ const ClickyBox: React.FC = () => {
   }, [])
 
   const contents = [
-    <Home key={0} onClick={handleClick} />,
-    <About key={1} onClick={handleClick} />,
-    <Skills key={2} onClick={handleClick} />,
-    <Projects key={3} onClick={handleClick} />,
-    <Contact key={4} onClick={handleClick} />,
+    <Home key={0} handleNavClick={handleNavClick} />,
+    <About key={1} handleNavClick={handleNavClick} />,
+    <Skills key={2} handleNavClick={handleNavClick} />,
+    <Projects key={3} handleNavClick={handleNavClick} />,
+    <Contact key={4} handleNavClick={handleNavClick} />,
   ]
 
   return (

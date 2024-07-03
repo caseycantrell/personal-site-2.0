@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { fadeInTransition, slideLeft, slideRight } from "./UI/Animations"
 
 interface HomeProps {
-  onClick: (index: number) => void
+  handleNavClick: (index: number) => void
 }
     
-const Home = ({ onClick }: HomeProps) => {
+const Home = ({ handleNavClick }: HomeProps) => {
   return (
     <AnimatePresence>
       <motion.div 
@@ -33,10 +33,10 @@ const Home = ({ onClick }: HomeProps) => {
       </div>
       <Socials />
       <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
-          <button onClick={() => onClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
-          <button onClick={() => onClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
+          <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
+          <button onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Projects</button>
+          <button onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
         </div>
       </motion.div>
     </AnimatePresence>

@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion"
 import { fadeInTransition } from './UI/Animations'
 
 interface ProjectsProps {
-  onClick: (index: number) => void
+  handleNavClick: (index: number) => void
 }
 
-const Projects = ({ onClick }: ProjectsProps) => {
+const Projects = ({ handleNavClick }: ProjectsProps) => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null)
   const [showProjectMenu, setShowProjectMenu] = useState<boolean>(false)
 
@@ -89,7 +89,7 @@ const Projects = ({ onClick }: ProjectsProps) => {
             initial="initial"
             animate="animate"
             variants={containerVariants} 
-            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-7">
+            className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-10">
               {projectDetails.map((project, index) => (
                 <motion.p variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</motion.p>
               ))}
@@ -104,10 +104,10 @@ const Projects = ({ onClick }: ProjectsProps) => {
         </div>
         <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-semibold">
-          <button onClick={() => onClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
-          <button onClick={() => onClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
-          <button onClick={() => onClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
-          <button onClick={() => onClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
+          <button onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Home</button>
+          <button onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">About</button>
+          <button onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Skills</button>
+          <button onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg">Contact</button>
         </div>
       </motion.div>
     </AnimatePresence>
