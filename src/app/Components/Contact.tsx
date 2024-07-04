@@ -9,11 +9,11 @@ interface ContactProps {
 }
 
 const Contact = ({ handleNavClick }: ContactProps) => {
-  const [ phoneHovered, setPhoneHovered] = useState(false)
-  const [ emailHovered, setEmailHovered] = useState(false)
-  const [ locationHovered, setLocationHovered] = useState(false)
-  const [ linkedInHovered, setLinkedInHovered] = useState(false)
-  const [ gitHubHovered, setGitHubHovered] = useState(false)
+  const [ phoneHovered, setPhoneHovered] = useState<boolean>(false)
+  const [ emailHovered, setEmailHovered] = useState<boolean>(false)
+  const [ locationHovered, setLocationHovered] = useState<boolean>(false)
+  const [ linkedInHovered, setLinkedInHovered] = useState<boolean>(false)
+  const [ gitHubHovered, setGitHubHovered] = useState<boolean>(false)
 
     return (
     <AnimatePresence>
