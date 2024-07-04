@@ -5,7 +5,7 @@ import ClickyBox from "./Components/ClickyBox"
 import Loading from "./Components/UI/Loading"
 
 export default function Home() {
-  const [ isBGImageLoaded, setIsBGImageLoaded ] = useState(false)
+  const [ isBGImageLoaded, setIsBGImageLoaded ] = useState<boolean>(false)
 
   useEffect(() => {
     const handleImageLoad = () => {
@@ -30,7 +30,7 @@ export default function Home() {
       </div>
       <style jsx>{`
       .bg-custom {
-        background-image: url('/images/code.jpg');
+        background-image: url('/images/mobile-bg.avif');
         background-size: cover;
         background-position: center;
         position: relative;
@@ -47,6 +47,15 @@ export default function Home() {
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
         z-index: 0; 
+      }
+      @media(min-width: 1024px) {
+        .bg-custom {
+          background-image: url('/images/bg4.avif');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          z-index: 0;
+        }
       }
       `}</style>
     </main>

@@ -10,9 +10,9 @@ import Projects from './Projects'
 import { fadeInTransition } from './UI/Animations'
 
 const ClickyBox: React.FC = () => {
-  const [isFlipped, setIsFlipped] = useState(false)
-  const [contentIndex, setContentIndex] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isFlipped, setIsFlipped] = useState<boolean>(false)
+  const [contentIndex, setContentIndex] = useState<number>(0)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const handleNavClick = (index: number) => {
     setContentIndex(index)
