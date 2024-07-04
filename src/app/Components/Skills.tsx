@@ -6,8 +6,8 @@ interface SkillsProps {
   handleNavClick: (index: number) => void
 }
 
-const frontEndSkills = ["React", "Next.js", "Vue", "JavaScript", "HTML5", "CSS3+", "SASS"]
-const backEndSkills = ["Ruby/Rails", "Node.js", "Python", "SQL", "Postgres", "Nginx"]
+const frontEndSkills = ["React", "Next.js", "Vue", "JavaScript", "TypeScript", "HTML5", "CSS3+", "SASS"]
+const backEndSkills = ["Rails", "Node.js", "Ruby", "Python", "SQL", "Postgres", "Nginx"]
 const toolsSkills = ["Git", "GitHub", "Figma", "Jira"]
 const testingSkills = ["RSpec", "Jest", "Agile", "Scrum"]
   

@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Socials from "./UI/Socials"
 import ProjectShow from './ProjectShow'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useAnimation } from "framer-motion"
 import { fadeInTransition } from './UI/Animations'
 
 interface ProjectsProps {
@@ -29,11 +29,12 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
   }
   
   const fallInVariants = {
-    initial: { y: -200, x: -200, opacity: 0 },
+    initial: { y: -200, x: -200, opacity: 0, color: "#000000" },
     animate: { 
       y: 0, 
       x: 0,
       opacity: 1, 
+      color: ["#000000", "#FFFFFF", "#000000"],
       transition: { 
         type: "spring",
         stiffness: 100,
@@ -42,6 +43,11 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
         duration: 0.2,
         opacity: { 
           duration: 0.5, ease: "easeInOut" 
+        },
+        color: {
+          duration: 0.75,
+          times: [0, 0.5, 1],
+          ease: "easeInOut"
         }
       }
     }
@@ -91,13 +97,21 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             variants={containerVariants} 
             className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-8">
               {projectDetails.map((project, index) => (
-                <motion.p whileHover={{ x: 10 }} key={index} variants={fallInVariants} onClick={() => handleProjectClick(index)} className="cursor-pointer text-xl">{project.title}</motion.p>
+                <motion.p
+                  key={index}
+                  variants={fallInVariants}
+                  whileHover={{ x: 10 }}
+                  onClick={() => handleProjectClick(index)}
+                  className="cursor-pointer text-xl"
+                >
+                  {project.title}
+                </motion.p>
               ))}
           </motion.div>
           <div className="lg:col-span-6">
             {selectedProject !== null ? <ProjectShow title={projectDetails[selectedProject].title} description={projectDetails[selectedProject].description} siteLink={projectDetails[selectedProject].siteLink} githubLink={projectDetails[selectedProject].githubLink} previewPicture={projectDetails[selectedProject].previewPicture} /> : 
-              <div className='w-full h-full flex flex-col justify-center items-center'>
-                <p className='text-6xl font-extrabold flex text-center mt-16 lg:mt-0'> Projects</p>
+              <div className='w-full h-full flex flex-row justify-center items-center'>
+                <p className='text-7xl font-extrabold flex text-center mt-16 lg:mt-0'>Projects</p>
               </div>
             }
           </div>

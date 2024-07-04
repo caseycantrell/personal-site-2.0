@@ -17,12 +17,12 @@ const About = ({ handleNavClick }: AboutProps) => {
         exit="exit"
         variants={fadeInTransition}  
         className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-        <div className="flex flex-col col-span-5 px-8 lg:pl-32 justify-center">
+        <div className="flex flex-col col-span-5 px-8 lg:pl-32 justify-center mb-4">
           <div className="flex flex-col lg:flex-row items-center mb-6 mt-4 lg:mt-0 ml-0 lg:ml-1">
             <Image src={selfPic} width={100} height={100} alt='Self Pic' placeholder="blur" className="rounded-md shadow-xl border border-gray-400" />
-            <p className="text-4xl lg:text-5xl font-extrabold lg:ml-6 mt-4 lg:mt-0 break-all">It&apos;s ya boi.</p>
+            <p className="text-4xl lg:text-5xl font-extrabold lg:ml-6 mt-4 lg:mt-0 break-all">About</p>
           </div>
-          <div className="">
+          <div className="mt-2">
             <p className="flex text-sm lg:text-lg font-semibold">
               As a former musician turned software engineer, I bring a distinctive perspective to problem-solving, 
               finding rhythm and flow in even the most complex challenges. Swapping melodies for algorithms, 

@@ -30,7 +30,7 @@ export default function Home() {
       </div>
       <style jsx>{`
       .bg-custom {
-        background-image: url('/images/mobile-bg.avif');
+        background-image: url('/images/bg4.avif');
         background-size: cover;
         background-position: center;
         position: relative;
@@ -47,15 +47,6 @@ export default function Home() {
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
         z-index: 0; 
-      }
-      @media(min-width: 1024px) {
-        .bg-custom {
-          background-image: url('/images/bg4.avif');
-          background-size: cover;
-          background-position: center;
-          position: relative;
-          z-index: 0;
-        }
       }
       `}</style>
     </main>
