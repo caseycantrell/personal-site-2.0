@@ -66,10 +66,10 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'blur(1px)',
-              WebkitBackdropFilter: 'blur(1px)', // For Safari support
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)', // For Safari support
+              boxShadow: '6px 4px 12px rgba(0, 0, 0, 0.2)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
@@ -85,10 +85,10 @@ const ClickyBox: React.FC = () => {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'blur(1px)',
-              WebkitBackdropFilter: 'blur(1px)', // For Safari support
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4)',
+              backgroundColor: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)', // For Safari support
+              boxShadow: '6px 4px 12px rgba(0, 0, 0, 0.2)',
               backfaceVisibility: 'hidden',
               display: 'flex',
               justifyContent: 'center',
