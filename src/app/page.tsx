@@ -13,7 +13,7 @@ export default function Home() {
     }
 
     const image = new Image()
-    image.src = '/images/code.jpg'
+    image.src = '/images/bg4.avif'
     image.onload = handleImageLoad
 
     return () => {
