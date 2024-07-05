@@ -35,7 +35,7 @@ export default function Home() {
         background-position: center;
         position: relative;
         z-index: 0;
-        overflow: hidden;
+        overflow: scroll;
         height: 100vh;
         width: 100vw;
       }
@@ -49,7 +49,16 @@ export default function Home() {
         background: rgba(255, 255, 255, 0); 
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
-        z-index: 0; 
+        z-index: 0;
+        overflow: scroll;
+      }
+      @media(min-size: 1200px) {
+        .bg-custom {
+          overflow: hidden;
+        }
+        .frosted-glass::before {
+          overflow: hidden;
+        }
       }
       `}</style>
     </main>
