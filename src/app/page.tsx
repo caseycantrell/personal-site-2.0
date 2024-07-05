@@ -53,7 +53,8 @@ export default function Home() {
       }
       @media (min-size: 1200px) {
         .bg-custom {
-          overflow: hidden;
+          overflow-y: hidden;
+          overflow-x: hidden;
         }
       }
       `}</style>
