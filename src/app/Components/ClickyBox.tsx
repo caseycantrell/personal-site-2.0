@@ -60,7 +60,7 @@ const ClickyBox: React.FC = () => {
             transformStyle: 'preserve-3d',
           }}
         >
-          <motion.div
+          <div
             className="front"
             style={{
               position: 'absolute',
@@ -79,8 +79,8 @@ const ClickyBox: React.FC = () => {
             }}
           >
             {contents[contentIndex]}
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className="back"
             style={{
               position: 'absolute',
@@ -99,7 +99,7 @@ const ClickyBox: React.FC = () => {
             }}
           >
             {contents[contentIndex]}
-          </motion.div>
+          </div>
         </motion.div>
       </motion.div>
       <style>{`
@@ -109,7 +109,8 @@ const ClickyBox: React.FC = () => {
           height: 1000px;
           max-width: 1200px;
           width: 100%;
-          overflow: scroll;
+          overflow-y: scroll;
+          overflow-x: hidden;
         }
         .square {
           width: 100%;
@@ -123,13 +124,13 @@ const ClickyBox: React.FC = () => {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            width: 100vw;
-            overflow: scroll;
+            width: 100%;
+            overflow-y: scroll;
           }
           .square {
             width: 1200px;
             height: 700px;
-            perspective: 9000px;
+            perspective: 12000px;
           }
         }
       `}</style>

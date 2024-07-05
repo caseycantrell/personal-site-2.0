@@ -13,7 +13,7 @@ const Home = ({ handleNavClick }: HomeProps) => {
         initial="initial"
         animate="animate"
         variants={fadeInTransition} 
-        className="w-screen lg:w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
+        className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
       <div className="flex flex-col col-span-5 justify-center items-center lg:items-start ml-12 lg:ml-64 mt-16 lg:mt-0">
         <motion.p     
           initial="initial"

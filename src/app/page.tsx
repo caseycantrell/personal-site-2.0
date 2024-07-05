@@ -56,9 +56,6 @@ export default function Home() {
         .bg-custom {
           overflow: hidden;
         }
-        .frosted-glass::before {
-          overflow: hidden;
-        }
       }
       `}</style>
     </main>
