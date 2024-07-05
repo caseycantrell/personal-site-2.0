@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useState } from "react"
 
 interface ProjectShowProps {
   title: string
@@ -7,14 +8,6 @@ interface ProjectShowProps {
   siteLink: string
   githubLink: string
   previewPicture: string
-}
-
-const hoverTransition = { 
-  duration: 0.5, 
-  type: "spring", 
-  damping: 10, 
-  mass: 0.75, 
-  stiffness: 100 
 }
 
 const containerVariants = {
@@ -45,6 +38,9 @@ const fallInVariants = {
 }
 
 const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture }: ProjectShowProps) => {
+  const [ siteLinkHovered, setSiteLinkHovered ] = useState<boolean>(false)
+  const [ repoLinkHovered, setRepoLinkHovered ] = useState<boolean>(false)
+
   return (
     <motion.div 
       key={title}
@@ -74,8 +70,9 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
         <Image 
           src={previewPicture} 
           className="rounded-md"
-          layout="fill" 
-          style={{ objectFit: 'cover' }}  
+          fill={true}
+          style={{ objectFit: 'cover' }}
+          sizes="(min-width: 1200px) 325px, (max-width: 1199px) 425px, 425px"
           alt="Project Image" 
           placeholder="blur" 
           blurDataURL={previewPicture}  
@@ -85,30 +82,27 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
         variants={fallInVariants}
         className="flex flex-row items-center gap-x-16 lg:gap-x-6 mt-8"
       >
-        <div className="flex flex-col items-center">
-          <motion.a 
-            whileHover={{ scale: 1.08 }} 
-            transition={hoverTransition} 
+        <div onMouseEnter={() => setSiteLinkHovered(true)} onMouseLeave={() => setSiteLinkHovered(false)} className="flex flex-col items-center cursor-pointer ">
+          <a 
             href={siteLink} 
-            className="cursor-pointer flex flex-col items-center" 
             target="_blank"
           >
-            <Image src={'/icons/link.png'} width={30} height={30} alt="Link" />
-            <motion.p variants={fallInVariants} className="font-semibold text-sm">site</motion.p>
-          </motion.a>
+            <motion.div animate={{ scale: siteLinkHovered ? 1.125 : 1 }}>
+              <Image src={'/icons/link.png'} width={30} height={30} alt="Site Link" />
+            </motion.div>
+          <motion.p variants={fallInVariants} className="font-semibold text-sm mt-1">site</motion.p>
+          </a>
         </div>
-
-        <div className="flex flex-col items-center">
-          <motion.a 
-            whileHover={{ scale: 1.08 }} 
-            transition={hoverTransition} 
+        <div onMouseEnter={() => setRepoLinkHovered(true)} onMouseLeave={() => setRepoLinkHovered(false)} className="flex flex-col items-center cursor-pointer ">
+          <a 
             href={githubLink} 
-            className="cursor-pointer flex flex-col items-center" 
             target="_blank"
           >
-            <Image src={'/icons/github.png'} width={30} height={30} alt="GitHub" className="butt"/>
-            <motion.p variants={fallInVariants} className="font-semibold text-sm">repo</motion.p>
-          </motion.a>
+            <motion.div animate={{ scale: repoLinkHovered ? 1.125 : 1 }}>
+              <Image src={'/icons/github.png'} width={30} height={30} alt="Repo Link" />
+            </motion.div>
+          <motion.p variants={fallInVariants} className="font-semibold text-sm mt-1">repo</motion.p>
+          </a>
         </div>
       </motion.div>
       <style>{`

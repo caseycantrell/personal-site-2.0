@@ -27,7 +27,7 @@ const Contact = ({ handleNavClick }: ContactProps) => {
             <div className="col-span-2">
               <p className="px-12 lg:px-24 mt-2 lg:mt-0 text-2xl lg:text-6xl font-extrabold">Thanks for stopping by. Feel free to reach out and I&apos;ll get in touch with you expeditiously.</p>
             </div>
-            <div className="flex flex-col col-span-1 space-y-6 lg:space-y-10 -ml-4 lg:ml-4 mt-12 lg:mt-0">
+            <div className="flex flex-col col-span-1 space-y-6 lg:space-y-10 ml-0 lg:ml-4 mt-12 lg:mt-0">
               <a href="https://www.google.com/maps/place/Austin,+TX/" target="_blank" onMouseEnter={() => setLocationHovered(true)} onMouseLeave={() => setLocationHovered(false)} className="flex flex-row items-center">
                 <motion.div
                   animate={{ scale: locationHovered ? 1.1 : 1 }}
@@ -36,8 +36,8 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                 <Image src={'/icons/location.png'} width={40} height={40} alt='Pin'/>
                 </motion.div>
                 <div className="flex flex-col ml-6">
-                  <p className="text-lg font-semibold">Location:</p>
-                  <p className="text-md">Austin, TX</p>
+                  <p className="text-lg font-bold">Location:</p>
+                  <p className="text-md font-semibold">Austin, TX</p>
                 </div>
               </a>
               <a href="tel:+18167187749" onMouseEnter={() => setPhoneHovered(true)} onMouseLeave={() => setPhoneHovered(false)} className="flex flex-row items-center cursor-pointer">
@@ -48,8 +48,8 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                   <Image src={'/icons/phone.png'} width={40} height={40} alt='Phone' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
-                  <p className="text-lg font-semibold">Call/Text:</p>
-                  <p className="text-md">&#40;816&#41; 718-7749</p>
+                  <p className="text-lg font-bold">Call/Text:</p>
+                  <p className="text-md font-semibold">&#40;816&#41; 718-7749</p>
                 </div>
               </a>
               <a href="mailto:cantrellcasey@gmail.com" onMouseEnter={() => setEmailHovered(true)} onMouseLeave={() => setEmailHovered(false)} className="flex flex-row items-center cursor-pointer">
@@ -60,8 +60,8 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                   <Image src={'/icons/email.png'} width={40} height={40} alt='Email' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
-                  <p className="text-lg font-semibold">Email:</p>
-                  <p className="text-md">cantrellcasey@gmail.com</p>
+                  <p className="text-lg font-bold">Email:</p>
+                  <p className="text-md font-semibold">cantrellcasey@gmail.com</p>
                 </div>
               </a>
               <a href="https://www.linkedin.com/in/cantrellcasey/" target="_blank" onMouseEnter={() => setLinkedInHovered(true)} onMouseLeave={() => setLinkedInHovered(false)} className="flex flex-row items-center cursor-pointer">
@@ -72,8 +72,8 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                   <Image src={'/icons/linkedin.png'} width={40} height={40} alt='LinkedIn' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
-                  <p className="text-lg font-semibold">LinkedIn:</p>
-                  <p className="text-md">Casey Cantrell</p>
+                  <p className="text-lg font-bold">LinkedIn:</p>
+                  <p className="text-md font-semibold">Casey Cantrell</p>
                 </div>
               </a>
               <a href="https://github.com/caseycantrell" target="_blank" onMouseEnter={() => setGitHubHovered(true)} onMouseLeave={() => setGitHubHovered(false)} className="flex flex-row items-center cursor-pointer">
@@ -84,8 +84,8 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                   <Image src={'/icons/github.png'} width={40} height={40} alt='GitHub' />
                 </motion.div>
                 <div className="flex flex-col ml-6">
-                  <p className="text-lg font-semibold">GitHub:</p>
-                  <p className="text-md">caseycantrell</p>
+                  <p className="text-lg font-bold">GitHub:</p>
+                  <p className="text-md font-semibold">caseycantrell</p>
                 </div>
               </a>
             </div>
@@ -93,10 +93,10 @@ const Contact = ({ handleNavClick }: ContactProps) => {
         </div>
       <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">PROJECTS</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">PROJECTS</motion.button>
         </div>
       </motion.div>
     </AnimatePresence>

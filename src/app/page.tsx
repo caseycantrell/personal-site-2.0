@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import ClickyBox from "./Components/ClickyBox"
 import Loading from "./Components/UI/Loading"
+import Copyright from "./Components/UI/Copyright"
 
 export default function Home() {
   const [ isBGImageLoaded, setIsBGImageLoaded ] = useState<boolean>(false)
@@ -28,6 +29,7 @@ export default function Home() {
       <div className="flex flex-col lg:items-center lg:justify-center">
         { isLoading ? <Loading /> : <ClickyBox /> }
       </div>
+      <Copyright/>
       <style jsx>{`
       .bg-custom {
         background-image: url('/images/bg4.avif');
