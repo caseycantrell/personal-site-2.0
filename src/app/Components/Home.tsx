@@ -14,7 +14,7 @@ const Home = ({ handleNavClick }: HomeProps) => {
         animate="animate"
         variants={fadeInTransition} 
         className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-      <div className="flex flex-col col-span-5 justify-center items-center lg:items-start ml-12 lg:ml-64 mt-16 lg:mt-0">
+      <div className="flex flex-col col-span-5 justify-center items-center lg:items-start lg:ml-64 mt-16 lg:mt-0">
         <motion.p     
           initial="initial"
           animate="animate"
@@ -29,7 +29,7 @@ const Home = ({ handleNavClick }: HomeProps) => {
           initial="initial"
           animate="animate"
           variants={slideRight} 
-          className="text-xl lg:text-2xl lg:-mt-3 ml-24 lg:ml-52 font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Full-Stack Software Engineer</motion.p>
+          className="text-xl lg:text-2xl lg:-mt-3 ml-0 lg:ml-52 font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Full-Stack Software Engineer</motion.p>
       </div>
       <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
