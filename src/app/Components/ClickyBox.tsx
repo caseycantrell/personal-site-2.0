@@ -21,7 +21,7 @@ const ClickyBox: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024)
+      setIsMobile(window.innerWidth < 1200)
     }
     handleResize()
     window.addEventListener('resize', handleResize)
@@ -106,15 +106,16 @@ const ClickyBox: React.FC = () => {
           display: flex;
           flex-direction: column;
           height: 1000px;
-          width: 100vw;
+          max-width: 1200px;
+          width: 100%;
           overflow: scroll;
         }
         .square {
-          width: 100dvw;
+          width: 100%;
           height: 850px;
           perspective: 5000px;
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1200px) {
           .container {
             display: flex;
             flex-direction: column;

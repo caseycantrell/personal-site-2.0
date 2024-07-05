@@ -51,7 +51,7 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
       initial="initial"
       animate="animate"
       variants={containerVariants}
-      className="w-screen lg:w-full h-full flex flex-col items-center justify-center p-8 lg:p-16"
+      className="w-full h-full flex flex-col items-center justify-center p-8 lg:p-16"
     >
       <motion.p 
         variants={fallInVariants} 
@@ -116,7 +116,7 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
           width: 425px;
           height: 225px;
         }          
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
           .project-image-container {
             width: 325px;
             height: 175px;

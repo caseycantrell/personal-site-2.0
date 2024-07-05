@@ -35,6 +35,9 @@ export default function Home() {
         background-position: center;
         position: relative;
         z-index: 0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
       }
       .frosted-glass::before {
         content: '';
