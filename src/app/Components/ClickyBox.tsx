@@ -74,7 +74,8 @@ const ClickyBox: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '10px'
+              borderRadius: '10px',
+              transform: 'rotateX(0deg)',
             }}
           >
             {contents[contentIndex]}
@@ -113,7 +114,7 @@ const ClickyBox: React.FC = () => {
         .square {
           width: 100%;
           height: 850px;
-          perspective: 5000px;
+          perspective: 10000px;
         }
         @media (min-width: 1200px) {
           .container {
@@ -128,7 +129,7 @@ const ClickyBox: React.FC = () => {
           .square {
             width: 1200px;
             height: 700px;
-            perspective: 5000px;
+            perspective: 9000px;
           }
         }
       `}</style>
