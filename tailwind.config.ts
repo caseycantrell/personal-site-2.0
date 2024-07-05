@@ -15,7 +15,8 @@ const config: Config = {
       },
       screens: {
         'lg': "1200px",
-        'xl': "1400px",
+        'xl': "1440px",
+        '2xl': "1536px"
       },
     },
   },

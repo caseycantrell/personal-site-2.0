@@ -22,14 +22,14 @@ export default function Home() {
     }
   }, [])
 
-  const isLoading: boolean = !isBGImageLoaded
+  const isLoading = !isBGImageLoaded
 
   return (
-    <main className="bg-custom frosted-glass">
-      <div className="flex flex-col lg:items-center lg:justify-center">
+    <main className="relative bg-custom frosted-glass">
+      <div className="flex flex-col lg:items-center lg:justify-center min-h-screen">
         { isLoading ? <Loading /> : <ClickyBox /> }
       </div>
-      <Copyright/>
+      <Copyright />
       <style jsx>{`
       .bg-custom {
         background-image: url('/images/bg4.avif');
@@ -48,15 +48,14 @@ export default function Home() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0); 
+        background: rgba(255, 255, 255, 0);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
         z-index: 0;
       }
-      @media (min-size: 1200px) {
+      @media (min-width: 1200px) {
         .bg-custom {
-          overflow-y: hidden;
-          overflow-x: hidden;
+          overflow: hidden;
         }
       }
       `}</style>
