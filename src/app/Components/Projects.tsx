@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Socials from "./UI/Socials"
 import ProjectShow from './ProjectShow'
-import { motion, AnimatePresence, useAnimation } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { fadeInTransition } from './UI/Animations'
 
 interface ProjectsProps {
@@ -83,9 +83,9 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg'>Select Project</p>
           </div>
           {showProjectMenu && (
-            <div className='w-screen justify-center grid grid-cols-2 border border-black bg-gray-300 rounded-md py-4 gap-y-4 pl-8 text-lg font-semibold absolute top-12 z-10'>
+            <div className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 right-9 z-10'>
               {projectDetails.map((project, index) => (
-                <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer">{project.title}</p>
+                <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer text-white">{project.title}</p>
               ))}
             </div>
           )}
@@ -111,17 +111,17 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           <div className="lg:col-span-6">
             {selectedProject !== null ? <ProjectShow title={projectDetails[selectedProject].title} description={projectDetails[selectedProject].description} siteLink={projectDetails[selectedProject].siteLink} githubLink={projectDetails[selectedProject].githubLink} previewPicture={projectDetails[selectedProject].previewPicture} /> : 
               <div className='w-full h-full flex flex-row justify-center items-center'>
-                <p className='text-7xl font-extrabold flex text-center mt-16 lg:mt-0'>Projects</p>
+                <p className='text-7xl font-extrabold flex text-center mt-24 lg:mt-0'>Projects</p>
               </div>
             }
           </div>
         </div>
         <Socials />
         <div className="grid grid-cols-2 gap-y-6 lg:gap-y-4 lg:flex lg:flex-col py-6 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
-          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
-          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
-          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
-          <motion.button whileHover={{ scale: 1.4 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
         </div>
       </motion.div>
     </AnimatePresence>

@@ -74,7 +74,7 @@ const ClickyBox: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '10px',
+              borderRadius: isMobile ? '0px 0px 14px 14px' : '10px',
               transform: 'rotateX(0deg)',
             }}
           >
@@ -94,7 +94,7 @@ const ClickyBox: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '10px',
+              borderRadius: isMobile ? '0px 0px 14px 14px' : '10px',
               transform: isMobile ? 'rotateY(180deg)' : 'rotateX(180deg)',
             }}
           >

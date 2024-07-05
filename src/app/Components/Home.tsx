@@ -29,14 +29,14 @@ const Home = ({ handleNavClick }: HomeProps) => {
           initial="initial"
           animate="animate"
           variants={slideRight} 
-          className="text-xl lg:text-2xl lg:-mt-3 ml-0 lg:ml-52 font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Full-Stack Software Engineer</motion.p>
+          className="text-lg lg:text-2xl lg:-mt-3 ml-0 lg:ml-52 font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Full-Stack Software Engineer</motion.p>
       </div>
       <Socials />
         <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">PROJECTS</motion.button>
-          <motion.button whileHover={{ scale: 1.2 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(1)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">ABOUT</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">PROJECTS</motion.button>
+          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
         </div>
       </motion.div>
     </AnimatePresence>
