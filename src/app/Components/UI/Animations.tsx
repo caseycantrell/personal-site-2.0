@@ -1,3 +1,22 @@
+export const mainPageFadeInTransition = {
+  initial: { opacity: 0 },
+  exit: {
+    opacity: 0,
+    transition: { 
+      duration: 0.5
+    }
+  },
+  animate: { 
+    opacity: 1, 
+    transition: { 
+      opacity: { 
+        duration: 0.2, 
+        ease: "easeInOut",
+      }
+    }
+  }
+}
+
 export const fadeInTransition = {
     initial: { opacity: 0 },
     exit: {

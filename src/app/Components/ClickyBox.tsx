@@ -7,7 +7,7 @@ import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
 import Projects from './Projects'
-import { fadeInTransition } from './UI/Animations'
+import { mainPageFadeInTransition } from './UI/Animations'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
@@ -21,14 +21,14 @@ const ClickyBox: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024)
+      setIsMobile(window.innerWidth < 1200)
     }
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const contents = [
+  const contents: JSX.Element[] = [
     <Home key={0} handleNavClick={handleNavClick} />,
     <About key={1} handleNavClick={handleNavClick} />,
     <Skills key={2} handleNavClick={handleNavClick} />,
@@ -40,7 +40,7 @@ const ClickyBox: React.FC = () => {
     <motion.div     
       initial="initial"
       animate="animate"
-      variants={fadeInTransition}
+      variants={mainPageFadeInTransition}
       className='container'
     >
       <motion.div className="square">
@@ -106,15 +106,16 @@ const ClickyBox: React.FC = () => {
           display: flex;
           flex-direction: column;
           height: 1000px;
-          width: 100vw;
+          max-width: 1200px;
+          width: 100%;
           overflow: scroll;
         }
         .square {
-          width: 100dvw;
+          width: 100%;
           height: 850px;
           perspective: 5000px;
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1200px) {
           .container {
             display: flex;
             flex-direction: column;

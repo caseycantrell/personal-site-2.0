@@ -6,10 +6,10 @@ interface SkillsProps {
   handleNavClick: (index: number) => void
 }
 
-const frontEndSkills = ["React", "Next.js", "Vue", "JavaScript", "TypeScript", "HTML5", "CSS3+", "SASS"]
-const backEndSkills = ["Rails", "Node.js", "Ruby", "Python", "SQL", "Postgres", "Nginx"]
-const toolsSkills = ["Git", "GitHub", "Figma", "Jira"]
-const testingSkills = ["RSpec", "Jest", "Agile", "Scrum"]
+const frontEndSkills: string[] = ["React", "Next.js", "Vue", "JavaScript", "TypeScript", "HTML5", "CSS3+", "SASS"]
+const backEndSkills: string[] = ["Rails", "Node.js", "Ruby", "Python", "SQL", "Postgres", "Nginx"]
+const toolsSkills: string[] = ["Git", "GitHub", "Figma", "Jira"]
+const testingSkills: string[] = ["RSpec", "Jest", "Agile", "Scrum"]
   
 const Skills = ({ handleNavClick }: SkillsProps) => {
   return (

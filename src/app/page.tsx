@@ -21,7 +21,7 @@ export default function Home() {
     }
   }, [])
 
-  const isLoading = !isBGImageLoaded
+  const isLoading: boolean = !isBGImageLoaded
 
   return (
     <main className="bg-custom frosted-glass">
@@ -35,6 +35,9 @@ export default function Home() {
         background-position: center;
         position: relative;
         z-index: 0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
       }
       .frosted-glass::before {
         content: '';
