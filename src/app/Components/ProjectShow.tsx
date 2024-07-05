@@ -10,14 +10,6 @@ interface ProjectShowProps {
   previewPicture: string
 }
 
-const hoverTransition = { 
-  duration: 0.5, 
-  type: "spring", 
-  damping: 10, 
-  mass: 0.75, 
-  stiffness: 100 
-}
-
 const containerVariants = {
   initial: {},
   animate: {

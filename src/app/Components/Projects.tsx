@@ -83,11 +83,15 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg'>Select Project</p>
           </div>
           {showProjectMenu && (
-            <div className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 right-9 z-10'>
+            <motion.div 
+              initial="initial"
+              animate={{ opacity: 1 }}
+              variants={fadeInTransition}  
+              className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 right-9 z-10'>
               {projectDetails.map((project, index) => (
                 <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer text-white">{project.title}</p>
               ))}
-            </div>
+            </motion.div>
           )}
           {/* end mobile menu */}
 
