@@ -107,15 +107,15 @@ const ClickyBox: React.FC = () => {
           display: flex;
           flex-direction: column;
           height: 1000px;
-          max-width: 1200px;
+          max-width: 1250px;
           width: 100%;
-          overflow-y: scroll;
+          overflow-y: auto;
           overflow-x: hidden;
         }
         .square {
           width: 100%;
           height: 850px;
-          perspective: 10000px;
+          perspective: 6000px;
         }
         @media (min-width: 1200px) {
           .container {
@@ -125,7 +125,7 @@ const ClickyBox: React.FC = () => {
             align-items: center;
             height: 100vh;
             width: 100%;
-            overflow-y: scroll;
+            overflow-y: auto;
           }
           .square {
             width: 1200px;
