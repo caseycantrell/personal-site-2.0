@@ -120,10 +120,10 @@ const ClickyBox: React.FC = () => {
         @media (min-width: 1200px) {
           .container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100dvh;
             width: 100%;
             overflow-y: auto;
           }
