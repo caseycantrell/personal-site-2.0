@@ -50,14 +50,11 @@ export default function Home() {
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(8px); /* for Safari */
         z-index: 0;
-        overflow: scroll;
       }
-      @media(min-size: 1200px) {
+      @media (min-size: 1200px) {
         .bg-custom {
-          overflow: hidden;
-        }
-        .frosted-glass::before {
-          overflow: hidden;
+          overflow-y: hidden;
+          overflow-x: hidden;
         }
       }
       `}</style>
