@@ -7,7 +7,7 @@ import About from './About'
 import Skills from './Skills'
 import Contact from './Contact'
 import Projects from './Projects'
-import { fadeInTransition } from './UI/Animations'
+import { mainPageFadeInTransition } from './UI/Animations'
 
 const ClickyBox: React.FC = () => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
@@ -28,7 +28,7 @@ const ClickyBox: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const contents = [
+  const contents: JSX.Element[] = [
     <Home key={0} handleNavClick={handleNavClick} />,
     <About key={1} handleNavClick={handleNavClick} />,
     <Skills key={2} handleNavClick={handleNavClick} />,
@@ -40,7 +40,7 @@ const ClickyBox: React.FC = () => {
     <motion.div     
       initial="initial"
       animate="animate"
-      variants={fadeInTransition}
+      variants={mainPageFadeInTransition}
       className='container'
     >
       <motion.div className="square">

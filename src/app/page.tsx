@@ -21,7 +21,7 @@ export default function Home() {
     }
   }, [])
 
-  const isLoading = !isBGImageLoaded
+  const isLoading: boolean = !isBGImageLoaded
 
   return (
     <main className="bg-custom frosted-glass">
