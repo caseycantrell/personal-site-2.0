@@ -37,7 +37,7 @@ const Contact = ({ handleNavClick }: ContactProps) => {
                 </motion.div>
                 <div className="flex flex-col ml-6">
                   <p className="text-lg font-bold">Location:</p>
-                  <p className="text-md font-semibold">Austin, TX</p>
+                  <p className="text-md font-semibold text-gray-900">Austin, TX</p>
                 </div>
               </a>
               <a href="tel:+18167187749" onMouseEnter={() => setPhoneHovered(true)} onMouseLeave={() => setPhoneHovered(false)} className="flex flex-row items-center cursor-pointer">

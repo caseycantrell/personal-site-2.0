@@ -5,7 +5,7 @@ import { hoverTransition } from "./Animations"
 const Socials = () => {
     return (
       <div className="absolute top-4 right-4 hidden lg:flex flex-row items-center gap-x-3.5">
-        <motion.a whileHover={{ scale: 1.125 }} transition={hoverTransition} href={"tel:+18167187749"} className="cursor-pointer">
+        <motion.a whileHover={{ scale: 1.125 }} transition={hoverTransition} href={"mailto:cantrellcasey@gmail.com"} className="cursor-pointer">
           <Image src={'/icons/email.png'} width={33} height={33} alt='Email'/>
         </motion.a>
         <motion.a whileHover={{ scale: 1.125 }} transition={hoverTransition} href={"https://www.linkedin.com/in/cantrellcasey/"} target="_blank" className="cursor-pointer">

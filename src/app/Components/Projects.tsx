@@ -76,7 +76,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           animate="animate"
           variants={fadeInTransition}   
           className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-        <div className="flex flex-col lg:grid lg:grid-cols-8 col-span-5 justify-center relative">
+        <div className="flex flex-col lg:grid lg:grid-cols-8 col-span-5 items-center justify-center relative">
 
           {/* mobile menu */}
           <div className="flex flex-row lg:hidden justify-center" onClick={() => setShowProjectMenu(!showProjectMenu)}>
@@ -87,7 +87,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
               initial="initial"
               animate={{ opacity: 1 }}
               variants={fadeInTransition}  
-              className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 right-9 z-10'>
+              className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 z-10'>
               {projectDetails.map((project, index) => (
                 <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer text-white">{project.title}</p>
               ))}

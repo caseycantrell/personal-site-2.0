@@ -82,10 +82,11 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
         variants={fallInVariants}
         className="flex flex-row items-center gap-x-16 lg:gap-x-6 mt-8"
       >
-        <div onMouseEnter={() => setSiteLinkHovered(true)} onMouseLeave={() => setSiteLinkHovered(false)} className="flex flex-col items-center cursor-pointer ">
+        <div onMouseEnter={() => setSiteLinkHovered(true)} onMouseLeave={() => setSiteLinkHovered(false)} className="cursor-pointer ">
           <a 
             href={siteLink} 
             target="_blank"
+            className="flex flex-col items-center"
           >
             <motion.div animate={{ scale: siteLinkHovered ? 1.125 : 1 }}>
               <Image src={'/icons/link.png'} width={30} height={30} alt="Site Link" />
@@ -93,10 +94,11 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
           <motion.p variants={fallInVariants} className="font-semibold text-sm mt-1">site</motion.p>
           </a>
         </div>
-        <div onMouseEnter={() => setRepoLinkHovered(true)} onMouseLeave={() => setRepoLinkHovered(false)} className="flex flex-col items-center cursor-pointer ">
+        <div onMouseEnter={() => setRepoLinkHovered(true)} onMouseLeave={() => setRepoLinkHovered(false)} className="cursor-pointer ">
           <a 
             href={githubLink} 
             target="_blank"
+            className="flex flex-col items-center"
           >
             <motion.div animate={{ scale: repoLinkHovered ? 1.125 : 1 }}>
               <Image src={'/icons/github.png'} width={30} height={30} alt="Repo Link" />
