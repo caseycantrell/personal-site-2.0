@@ -24,7 +24,7 @@ const About = ({ handleNavClick }: AboutProps) => {
           </div>
           <div className="mt-2">
             <p className="flex text-sm lg:text-lg font-semibold">
-              As a former musician turned software engineer, I bring a distinctive perspective to problem-solving, 
+              As a former musician turned software engineer, I bring a distinct perspective to problem-solving, 
               finding rhythm and flow in even the most complex challenges. Swapping melodies for algorithms, 
               I thrive on creating harmonious solutions and orchestrating innovative projects.
             </p>
