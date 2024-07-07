@@ -29,7 +29,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
   }
 
   const fallInVariants = {
-    initial: { y: -200, x: -200, opacity: 0, color: "#000000" },
+    initial: { y: -200, x: -100, opacity: 0, color: "#000000" },
     animate: { 
       y: 0, 
       x: 0,
