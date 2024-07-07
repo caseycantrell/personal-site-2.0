@@ -27,7 +27,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
       }
     }
   }
-  
+
   const fallInVariants = {
     initial: { y: -200, x: -200, opacity: 0, color: "#000000" },
     animate: { 
@@ -49,6 +49,24 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
           times: [0, 0.5, 1],
           ease: "easeInOut"
         }
+      }
+    }
+  }
+
+  const mobileFallInVariants = {
+    initial: { y: -75, opacity: 0 },
+    animate: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { 
+        type: "spring",
+        stiffness: 125,
+        damping: 8,
+        mass: 0.5,
+        duration: 0.2,
+        opacity: { 
+          duration: 0.8, ease: "easeInOut" 
+        },
       }
     }
   }
@@ -80,16 +98,20 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
 
           {/* mobile menu */}
           <div className="flex flex-row lg:hidden justify-center" onClick={() => setShowProjectMenu(!showProjectMenu)}>
-            <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg'>Select Project</p>
+            <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg cursor-pointer select-none'>Select Project</p>
           </div>
           {showProjectMenu && (
             <motion.div 
               initial="initial"
-              animate={{ opacity: 1 }}
-              variants={fadeInTransition}  
-              className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 z-10'>
+              animate="animate"
+              variants={containerVariants}  
+              className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 z-10 select-none'>
               {projectDetails.map((project, index) => (
-                <p key={index} onClick={() => handleProjectClick(index)} className="cursor-pointer text-white">{project.title}</p>
+                <motion.div        
+                  variants={mobileFallInVariants} 
+                  key={index} 
+                  onClick={() => handleProjectClick(index)} 
+                  className="cursor-pointer text-white">{project.title}</motion.div>
               ))}
             </motion.div>
           )}
