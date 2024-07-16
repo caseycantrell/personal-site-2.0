@@ -53,12 +53,13 @@ export const slideLeft = {
     transition: { 
       delay: 0.3,
       type: "spring",
-      stiffness: 100,
-      damping: 10,
-      mass: 1,
-      duration: 1,
+      ease: "easeInOut",
+      stiffness: 120,
+      damping: 15,
+      mass: 1.5,
+      duration: 1.5,
       opacity: { 
-        duration: 1, ease: "easeInOut" 
+        duration: 1.5, ease: "easeInOut" 
       }
     }
   }
@@ -72,12 +73,13 @@ export const slideRight = {
     transition: { 
       delay: 0.3,
       type: "spring",
-      stiffness: 100,
-      damping: 10,
-      mass: 1,
-      duration: 1,
+      ease: "easeInOut",
+      stiffness: 120,
+      damping: 15,
+      mass: 1.5,
+      duration: 1.5,
       opacity: { 
-        duration: 1, ease: "easeInOut" 
+        duration: 1.5, ease: "easeInOut" 
       }
     }
   }
