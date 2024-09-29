@@ -78,7 +78,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
     githubLink: string
     previewPicture: string
   }[] = [
-    { title: "Spyntax", description: "Web application to make song requests to DJ's in real-time. Made with Vue and Ruby on Rails using ActionCable, Day.js, and Bootstrap.", siteLink: "https://spyntax.netlify.app/", githubLink: "https://github.com/caseycantrell/spyntax-app-backend", previewPicture: "/images/projects/spyntax.png" },
+    { title: "Spyntax", description: "Web application to make song requests to DJ's in real-time. Made with Vue and Ruby on Rails using ActionCable, Day.js, and Bootstrap.", siteLink: "https://spyntax.vercel.app/", githubLink: "https://github.com/caseycantrell/spyntax-app-backend", previewPicture: "/images/projects/spyntax.png" },
     { title: "Webflix", description: "A clone of a popular video streaming service. Made with React, Firebase, Fuse.js, and Styled Components.", siteLink: "https://web-flix.netlify.app/", githubLink: "https://github.com/caseycantrell/webflix", previewPicture: "/images/projects/webflix.png" },
     { title: "COINdex", description: "Info, news, and statistics on popular cryptocurrencies. Made in React with Redux, Axios, Chart.js, Millify, Moment, Ant Design components, Bing API, and the Coinranking API.", siteLink: "https://coindex2.netlify.app/", githubLink: "https://github.com/caseycantrell/coindex2", previewPicture: "/images/projects/coindex.png" },
     { title: "Beatboi", description: "A clone of one of my favorite classic drum machines. Made with React.", siteLink: "https://beatboi.netlify.app/", githubLink: "https://github.com/caseycantrell/beatboi", previewPicture: "/images/projects/beatboi.png" },
