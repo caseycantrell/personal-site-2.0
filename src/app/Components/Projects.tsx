@@ -78,6 +78,7 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
     githubLink: string
     previewPicture: string
   }[] = [
+    { title: "Crowdwork", description: "Intended to be a version 2 of my older app Spyntax, this platform lets users send chat messages and song requests to DJs using the Spotify API, in real-time. Built with Next.js, Node.js (Express), and WebSockets.", siteLink: "https://crowdwork.vercel.app/", githubLink: "https://github.com/caseycantrell/crowdwork-backend", previewPicture: "/images/projects/crowdwork2.png" },
     { title: "Spyntax", description: "Real-time song request app for DJs, built with Vue.js on the frontend and a Ruby on Rails backend, using WebSockets for live communication.", siteLink: "https://spyntax.vercel.app/", githubLink: "https://github.com/caseycantrell/spyntax-app-backend", previewPicture: "/images/projects/spyntax.png" },
     { title: "Webflix", description: "A clone of a popular video streaming service. Made with React, Firebase, Fuse.js, and Styled Components.", siteLink: "https://web-flix.netlify.app/", githubLink: "https://github.com/caseycantrell/webflix", previewPicture: "/images/projects/webflix.png" },
     { title: "COINdex", description: "Info, news, and statistics on popular cryptocurrencies. Made in React with Redux, Axios, Chart.js, Millify, Moment, Ant Design components, Bing API, and the Coinranking API.", siteLink: "https://coindex2.netlify.app/", githubLink: "https://github.com/caseycantrell/coindex2", previewPicture: "/images/projects/coindex.png" },
