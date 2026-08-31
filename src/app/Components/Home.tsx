@@ -17,7 +17,7 @@ const Home = ({ onNavigate }: PanelProps) => (
       </motion.div>
       <motion.p variants={slideRight} className="mt-5 max-w-md text-sm lg:text-base text-ink-soft leading-relaxed text-center lg:text-left">
         Austin, TX. Four years shipping production web applications, currently on a
-        distributed team building a geospatial monitoring platform.
+        distributed team building a geospatial inspection platform for utility infrastructure.
       </motion.p>
     </div>
   </Panel>

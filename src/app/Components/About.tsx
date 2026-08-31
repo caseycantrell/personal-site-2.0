@@ -18,8 +18,8 @@ const About = ({ onNavigate }: PanelProps) => (
       <div className="max-w-2xl space-y-6">
         <p className="text-sm lg:text-base text-ink-soft leading-relaxed">
           I&apos;m a full-stack engineer in Austin, four years into shipping production web
-          applications. These days I&apos;m on a distributed remote team building a geospatial
-          monitoring platform, working across the interfaces and the Python and Django
+          applications. These days I&apos;m on a distributed remote team building a geospatial 
+          inspection platform for utility infrastructure, working across the interfaces and the Python and Django
           services behind them. Before that I spent three years in a Rails and Next.js
           codebase at a custom apparel manufacturer here in Austin.
         </p>
