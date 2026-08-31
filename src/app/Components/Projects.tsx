@@ -50,7 +50,7 @@ const Projects = ({ onNavigate }: PanelProps) => {
             type="button"
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(open => !open)}
-            className="text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg cursor-pointer select-none"
+            className="eyebrow text-[10px] text-ink-soft border border-rule rounded-md px-5 py-2.5 cursor-pointer select-none hover:border-accent hover:text-accent transition-colors duration-300"
           >
             Select Project
           </button>
@@ -61,7 +61,7 @@ const Projects = ({ onNavigate }: PanelProps) => {
             initial="initial"
             animate="animate"
             variants={staggerChildren(0.2)}
-            className="w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 z-10 select-none"
+            className="w-72 flex flex-col items-stretch border border-white/10 bg-ink/95 backdrop-blur-sm rounded-lg py-3 absolute top-14 z-20 select-none shadow-2xl"
           >
             {projects.map(project => (
               <motion.button
@@ -69,7 +69,7 @@ const Projects = ({ onNavigate }: PanelProps) => {
                 type="button"
                 variants={fallIn}
                 onClick={() => selectProject(project)}
-                className="cursor-pointer text-white"
+                className={`cursor-pointer px-5 py-2.5 text-left text-sm transition-colors duration-200 ${selected?.title === project.title ? 'text-white' : 'text-white/60 hover:text-white'}`}
               >
                 {project.title}
               </motion.button>
@@ -81,16 +81,16 @@ const Projects = ({ onNavigate }: PanelProps) => {
           initial="initial"
           animate="animate"
           variants={staggerChildren(0.2)}
-          className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-8"
+          className="hidden lg:flex flex-col col-span-2 justify-center items-stretch pl-24 gap-y-2"
         >
           {projects.map(project => (
             <motion.button
               key={project.title}
               type="button"
               variants={fallInFlash}
-              whileHover={{ x: 10 }}
+              whileHover={{ x: 6 }}
               onClick={() => selectProject(project)}
-              className="cursor-pointer text-xl text-left"
+              className={`cursor-pointer py-2.5 text-left text-base transition-colors duration-200 ${selected?.title === project.title ? 'text-accent font-semibold' : 'text-ink-soft hover:text-ink'}`}
             >
               {project.title}
             </motion.button>
@@ -99,8 +99,9 @@ const Projects = ({ onNavigate }: PanelProps) => {
 
         <div className="lg:col-span-6">
           {selected ? <ProjectShow {...selected} /> : (
-            <div className="w-full h-full flex flex-row justify-center items-center">
-              <p className="text-7xl font-extrabold flex text-center mt-24 lg:mt-0">Projects</p>
+            <div className="w-full h-full flex flex-col justify-center items-center gap-3 py-16 lg:py-0">
+              <p className="text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] text-ink">Projects</p>
+              <p className="eyebrow text-[10px] text-ink-faint">Pick one from the list</p>
             </div>
           )}
         </div>

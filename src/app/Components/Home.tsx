@@ -5,11 +5,19 @@ import type { PanelProps } from './UI/panels'
 
 const Home = ({ onNavigate }: PanelProps) => (
   <Panel current="home" onNavigate={onNavigate}>
-    <div className="flex flex-col col-span-5 justify-center items-center lg:items-start lg:ml-64 mt-16 lg:mt-0">
-      <motion.p variants={slideLeft} className="text-7xl lg:text-9xl font-extrabold">Casey</motion.p>
-      <motion.p variants={slideLeft} className="text-7xl lg:text-9xl font-extrabold lg:-mt-6 ml-0 lg:ml-4">Cantrell</motion.p>
-      <motion.p variants={slideRight} className="text-lg lg:text-2xl lg:-mt-3 ml-0 lg:ml-52 font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-        Full-Stack Software Engineer
+    <div className="flex flex-col col-span-5 justify-center items-center lg:items-start lg:pl-24 px-8 mt-16 lg:mt-0">
+      <motion.h1 variants={slideLeft} className="text-5xl lg:text-[5.25rem] font-bold tracking-[-0.035em] leading-[0.95] text-ink text-center lg:text-left">
+        Casey
+        <br />
+        Cantrell
+      </motion.h1>
+      <motion.div variants={slideRight} className="mt-5 flex items-center gap-4">
+        <span className="hidden lg:block h-px w-14 bg-accent/45" />
+        <p className="eyebrow text-[10px] lg:text-xs text-accent">Full-Stack Software Engineer</p>
+      </motion.div>
+      <motion.p variants={slideRight} className="mt-5 max-w-md text-sm lg:text-base text-ink-soft leading-relaxed text-center lg:text-left">
+        Austin, TX. Four years shipping production web applications, currently on a
+        distributed team building a geospatial monitoring platform.
       </motion.p>
     </div>
   </Panel>

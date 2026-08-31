@@ -2,78 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Palette is shared with the resume at ~/Desktop/resume so the two read as
+   one identity. The 1200px breakpoint below is the desktop/mobile split; it is
+   also `lg` in tailwind.config.ts and DESKTOP_BREAKPOINT in UI/panels.ts. */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --ground: #08191f;
+  --paper: #ffffff;
+  --ink: #0d1117;
+  --accent: #0ca678;
+  color-scheme: only light;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--ink);
+  background-color: var(--ground);
+  background-image:
+    radial-gradient(980px 680px at 10% 2%, rgba(20, 84, 104, 0.45), transparent 62%),
+    radial-gradient(820px 560px at 92% 96%, rgba(12, 166, 120, 0.16), transparent 60%),
+    linear-gradient(160deg, #08191f 0%, #0d2833 50%, #051216 100%);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  /* the resume's uppercase mono label treatment */
+  .eyebrow {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
 }
 
-/* ------------------------------------------------------------------ *
- * The 1200px breakpoint below is the desktop/mobile split. It is also
- * `lg` in tailwind.config.ts and DESKTOP_BREAKPOINT in UI/panels.ts.
- * ------------------------------------------------------------------ */
-
-/* ---- page backdrop ---- */
+/* ---- page ---- */
 
 .page-backdrop {
-  background-image: url('/images/bg4.avif');
-  background-size: cover;
-  background-position: center;
   position: relative;
   z-index: 0;
-  overflow: scroll;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
+/* a whisper of grain so the large gradient never bands */
 .page-backdrop::before {
   content: '';
-  position: absolute;
+  position: fixed;
   inset: 0;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
   z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---- the flip card ---- */
 
 .card-viewport {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  height: 1000px;
-  max-width: 1250px;
   width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  max-width: 1250px;
+  height: 100%;
 }
 
 .card-stage {
   width: 100%;
-  height: 850px;
+  height: 100dvh;
+  min-height: 700px;
   perspective: 6000px;
 }
 
@@ -82,6 +79,7 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .card-face {
@@ -91,25 +89,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 6px 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    0 30px 70px rgba(0, 0, 0, 0.45);
   backface-visibility: hidden;
-  border-radius: 0 0 10px 10px;
+  overflow-y: auto;
+  border-radius: 0 0 6px 6px;
   transform: rotateX(0deg);
 }
 
-/* mobile flips on Y, desktop on X -- the axis is set in ClickyBox to match */
+
+/* mobile turns on Y, desktop on X -- the axis is set in ClickyBox to match */
 .card-face--back {
   transform: rotateY(180deg);
 }
 
 @media (min-width: 1200px) {
-  .page-backdrop {
-    overflow: hidden;
-  }
-
   .card-viewport {
     flex-direction: row;
     justify-content: center;
@@ -118,18 +115,24 @@ body {
   }
 
   .card-stage {
-    width: 1200px;
-    height: 700px;
+    width: 1050px;
+    height: 600px;
+    min-height: 0;
     perspective: 12000px;
   }
 
   .card-face {
-    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-face {
+    border-radius: 6px;
   }
 
   .card-face--back {
     transform: rotateX(180deg);
   }
+
 }
 
 /* ---- project preview ---- */
@@ -143,32 +146,5 @@ body {
   .project-preview {
     width: 325px;
     height: 175px;
-  }
-}
-
-/* ---- loader ---- */
-
-.loader {
-  z-index: 1;
-  width: 120px;
-  height: 14px;
-  --c: #fff 92%, #0000;
-  background:
-    radial-gradient(circle 7px at bottom, var(--c)) 0 0,
-    radial-gradient(circle 7px at top, var(--c)) 0 100%;
-  background-size: calc(100% / 4) 50%;
-  background-repeat: repeat-x;
-  animation: loader-bounce 1s infinite;
-}
-
-@keyframes loader-bounce {
-  80%, 100% {
-    background-position: calc(100% / 3) 0, calc(100% / -3) 100%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .loader {
-    animation: none;
   }
 }

@@ -12,7 +12,7 @@ const subscribe = (onStoreChange: () => void) => {
 const getSnapshot = () => window.matchMedia(MOBILE_QUERY).matches
 
 // the server has no viewport, so assume desktop and let the first client
-// snapshot correct it -- same as the old useEffect, minus the resize spam
+// snapshot correct it
 const getServerSnapshot = () => false
 
 export const useIsMobile = () => useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)

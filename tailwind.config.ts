@@ -1,17 +1,23 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ["var(--font-archivo)", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      colors: {
+        // shared with the resume at ~/Desktop/resume so both read as one identity
+        ink: {
+          DEFAULT: "#0D1117",
+          soft: "#39414B",
+          faint: "#79828D",
+        },
+        // one token -- swap for #E03131 (red) or #1971C2 (blue) to reskin
+        accent: "#0CA678",
+        rule: "#D3D8DE",
       },
       screens: {
         'lg': "1200px",

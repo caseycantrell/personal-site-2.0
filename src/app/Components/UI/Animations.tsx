@@ -53,14 +53,15 @@ export const staggerChildren = (staggerChildren: number): Variants => ({
   animate: { transition: { staggerChildren } },
 })
 
-/** the desktop project list: titles drop in and flash white on the way past */
+/** the desktop project list: titles drop in from the upper left.
+ *  No color keyframes -- framer writes those as an inline style that outranks
+ *  the selected-item class, which would pin every title to black forever. */
 export const fallInFlash: Variants = {
-  initial: { y: -200, x: -100, opacity: 0, color: '#000000' },
+  initial: { y: -200, x: -100, opacity: 0 },
   animate: {
     y: 0,
     x: 0,
     opacity: 1,
-    color: ['#000000', '#FFFFFF', '#000000'],
     transition: {
       type: 'spring',
       stiffness: 100,
@@ -68,7 +69,6 @@ export const fallInFlash: Variants = {
       mass: 0.5,
       duration: 0.2,
       opacity: { duration: 0.5, ease: 'easeInOut' },
-      color: { duration: 0.75, times: [0, 0.5, 1], ease: 'easeInOut' },
     },
   },
 }

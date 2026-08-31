@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Archivo, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo" })
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 const description = "Personal website for Casey Cantrell, a Full-Stack Software Engineer living in Austin, TX."
 
@@ -35,8 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${archivo.variable} ${jetbrains.variable}`}>
+      <body className="font-sans">{children}</body>
     </html>
   )
 }

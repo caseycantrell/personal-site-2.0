@@ -12,19 +12,21 @@ const skillGroups: { label: string, skills: string[] }[] = [
 
 const Skills = ({ onNavigate }: PanelProps) => (
   <Panel current="skills" onNavigate={onNavigate}>
-    <div className="flex flex-col justify-center col-span-5 pl-6 pr-4 lg:pl-32 lg:pr-8">
-      <div className="grid grid-cols-2 gap-y-6 lg:gap-y-8 lg:flex lg:flex-col">
+    <div className="flex flex-col justify-center col-span-5 px-8 lg:pl-24 lg:pr-12 py-8 lg:py-0">
+      <div className="flex items-center gap-4 mb-10">
+        <p className="eyebrow text-[10px] text-ink-faint">Technical</p>
+        <span className="h-px flex-1 bg-rule" />
+      </div>
+      <dl className="lg:grid lg:grid-cols-[150px_1fr] lg:gap-x-8 lg:gap-y-7 space-y-6 lg:space-y-0">
         {skillGroups.map(({ label, skills }) => (
-          <div key={label} className="flex flex-col lg:flex-row lg:flex-wrap items-start lg:items-end">
-            <p className="font-bold lg:font-extrabold text-xl lg:text-4xl mr-1 ml-2 lg:ml-0 lg:whitespace-nowrap">{label}:</p>
-            {skills.map((skill, index) => (
-              <p key={skill} className="text-md lg:text-xl font-semibold ml-6 lg:ml-1">
-                {skill}<span className="hidden lg:inline">{index !== skills.length - 1 && ","}</span>
-              </p>
-            ))}
+          <div key={label} className="lg:contents">
+            <dt className="eyebrow text-[10px] text-ink-faint mb-1.5 lg:mb-0 lg:pt-1">{label}</dt>
+            <dd className="m-0 text-sm lg:text-base text-ink-soft leading-relaxed">
+              {skills.join(', ')}
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
     </div>
   </Panel>
 )
