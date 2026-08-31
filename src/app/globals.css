@@ -31,3 +31,144 @@ body {
     text-wrap: balance;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * The 1200px breakpoint below is the desktop/mobile split. It is also
+ * `lg` in tailwind.config.ts and DESKTOP_BREAKPOINT in UI/panels.ts.
+ * ------------------------------------------------------------------ */
+
+/* ---- page backdrop ---- */
+
+.page-backdrop {
+  background-image: url('/images/bg4.avif');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+  overflow: scroll;
+  height: 100vh;
+  width: 100vw;
+}
+
+.page-backdrop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+/* ---- the flip card ---- */
+
+.card-viewport {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  max-width: 1250px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.card-stage {
+  width: 100%;
+  height: 850px;
+  perspective: 6000px;
+}
+
+.card-pivot {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 6px 4px 12px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  border-radius: 0 0 10px 10px;
+  transform: rotateX(0deg);
+}
+
+/* mobile flips on Y, desktop on X -- the axis is set in ClickyBox to match */
+.card-face--back {
+  transform: rotateY(180deg);
+}
+
+@media (min-width: 1200px) {
+  .page-backdrop {
+    overflow: hidden;
+  }
+
+  .card-viewport {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+  }
+
+  .card-stage {
+    width: 1200px;
+    height: 700px;
+    perspective: 12000px;
+  }
+
+  .card-face {
+    border-radius: 10px;
+  }
+
+  .card-face--back {
+    transform: rotateX(180deg);
+  }
+}
+
+/* ---- project preview ---- */
+
+.project-preview {
+  width: 425px;
+  height: 225px;
+}
+
+@media (max-width: 1199px) {
+  .project-preview {
+    width: 325px;
+    height: 175px;
+  }
+}
+
+/* ---- loader ---- */
+
+.loader {
+  z-index: 1;
+  width: 120px;
+  height: 14px;
+  --c: #fff 92%, #0000;
+  background:
+    radial-gradient(circle 7px at bottom, var(--c)) 0 0,
+    radial-gradient(circle 7px at top, var(--c)) 0 100%;
+  background-size: calc(100% / 4) 50%;
+  background-repeat: repeat-x;
+  animation: loader-bounce 1s infinite;
+}
+
+@keyframes loader-bounce {
+  80%, 100% {
+    background-position: calc(100% / 3) 0, calc(100% / -3) 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    animation: none;
+  }
+}

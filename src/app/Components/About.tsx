@@ -1,50 +1,35 @@
-import Socials from "./UI/Socials"
-import Image from "next/image"
+import Image from 'next/image'
+import Panel from './UI/Panel'
 import selfPic from '../../../public/images/self.jpg'
-import { motion, AnimatePresence } from "framer-motion"
-import { fadeInTransition } from "./UI/Animations"
+import type { PanelProps } from './UI/panels'
 
-interface AboutProps {
-  handleNavClick: (index: number) => void
-}
+const About = ({ onNavigate }: PanelProps) => (
+  <Panel current="about" onNavigate={onNavigate}>
+    <div className="flex flex-col col-span-5 px-8 lg:pl-32 justify-center mb-4">
+      <div className="flex flex-col lg:flex-row items-center mb-6 mt-4 lg:mt-0 ml-0 lg:ml-1">
+        {/* 100x107 keeps the source 1079x1159 ratio; shrink-0 stops the flex row
+            from squashing one axis and tripping next/image's aspect warning */}
+        <Image src={selfPic} width={100} height={107} alt="Casey Cantrell" placeholder="blur" className="rounded-md shadow-md shrink-0" />
+        <p className="text-4xl lg:text-5xl font-extrabold lg:ml-6 mt-4 lg:mt-0">About</p>
+      </div>
+      <div className="mt-2">
+        <p className="flex text-sm lg:text-lg font-semibold">
+          I&apos;m a full-stack engineer in Austin, four years into shipping production web
+          applications. These days I&apos;m on a distributed remote team building a geospatial
+          monitoring platform, working across the interfaces and the Python and Django
+          services behind them. Before that I spent three years in a Rails and Next.js
+          codebase at a custom apparel manufacturer here in Austin.
+        </p>
+        <p className="flex mt-8 text-sm lg:text-lg font-semibold">
+          I came to engineering from music, after about a decade as a DJ and producer. Most
+          of that work lived in the last ten percent, the part where a mix is technically
+          finished and you keep going anyway, and software turns out to be the same. It left
+          me with a stubborn eye for interface detail and a lot of patience for revision. I
+          still play out whenever possible.
+        </p>
+      </div>
+    </div>
+  </Panel>
+)
 
-const About = ({ handleNavClick }: AboutProps) => {
-  return (
-    <AnimatePresence>
-      <motion.div 
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={fadeInTransition}  
-        className="w-full h-full flex flex-col-reverse justify-end lg:grid lg:grid-cols-6 text-black relative">
-        <div className="flex flex-col col-span-5 px-8 lg:pl-32 justify-center mb-4">
-          <div className="flex flex-col lg:flex-row items-center mb-6 mt-4 lg:mt-0 ml-0 lg:ml-1">
-            <Image src={selfPic} width={100} height={100} alt='Casey Cantrell' placeholder="blur" className="rounded-md shadow-md" />
-            <p className="text-4xl lg:text-5xl font-extrabold lg:ml-6 mt-4 lg:mt-0 break-all">About</p>
-          </div>
-          <div className="mt-2">
-            <p className="flex text-sm lg:text-lg font-semibold">
-              As a former musician turned software engineer, I bring a distinct perspective to problem-solving, 
-              finding rhythm and flow in even the most complex challenges. Swapping melodies for algorithms, 
-              I thrive on creating harmonious solutions and orchestrating innovative projects.
-            </p>
-            <p className="flex mt-8 text-sm lg:text-lg font-semibold">
-              From the world of music to the realm of software engineering, 
-              my journey has been a unique blend of creativity and logic. 
-              While my days of live performances are behind me, I now compose code with the same passion.
-            </p>
-          </div>
-        </div>
-        <Socials />
-        <div className="grid grid-cols-2 gap-y-8 lg:gap-y-4 lg:flex lg:flex-col py-8 lg:py-0 items-center justify-center space-y-0 lg:space-y-16 text-xl font-extrabold">
-          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(0)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">HOME</motion.button>
-          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(2)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">SKILLS</motion.button>
-          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(3)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">PROJECTS</motion.button>
-          <motion.button whileHover={{ scale: 1.125 }} onClick={() => handleNavClick(4)} className="mx-8 lg:mx-0 py-3 lg:py-0 rounded-lg lg:hover:text-gray-200 transition-colors duration-500 ease-in-out">CONTACT</motion.button>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  )
-}
-  
 export default About

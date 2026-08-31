@@ -6,7 +6,7 @@ import Loading from "./Components/UI/Loading"
 import Copyright from "./Components/UI/Copyright"
 
 export default function Home() {
-  const [ isBGImageLoaded, setIsBGImageLoaded ] = useState<boolean>(false)
+  const [isBGImageLoaded, setIsBGImageLoaded] = useState(false)
 
   useEffect(() => {
     const reveal = () => setIsBGImageLoaded(true)
@@ -27,43 +27,12 @@ export default function Home() {
     }
   }, [])
 
-  const isLoading = !isBGImageLoaded
-
   return (
-    <main className="relative bg-custom frosted-glass">
+    <main className="relative page-backdrop">
       <div className="flex flex-col lg:items-center lg:justify-center min-h-screen">
-        { isLoading ? <Loading /> : <ClickyBox /> }
+        {isBGImageLoaded ? <ClickyBox /> : <Loading />}
       </div>
       <Copyright />
-      <style jsx>{`
-      .bg-custom {
-        background-image: url('/images/bg4.avif');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        z-index: 0;
-        overflow: scroll;
-        height: 100vh;
-        width: 100vw;
-      }
-      .frosted-glass::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(8px); /* for Safari */
-        z-index: 0;
-      }
-      @media (min-width: 1200px) {
-        .bg-custom {
-          overflow: hidden;
-        }
-      }
-      `}</style>
     </main>
   )
 }
