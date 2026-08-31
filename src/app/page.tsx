@@ -9,16 +9,21 @@ export default function Home() {
   const [ isBGImageLoaded, setIsBGImageLoaded ] = useState<boolean>(false)
 
   useEffect(() => {
-    const handleImageLoad = () => {
-      setIsBGImageLoaded(true)
-    }
+    const reveal = () => setIsBGImageLoaded(true)
 
     const image = new Image()
+    image.onload = reveal
+    // never leave the page stuck on the loader if the background 404s or the
+    // connection stalls -- the content matters more than the backdrop
+    image.onerror = reveal
+    const timeout = setTimeout(reveal, 3000)
     image.src = '/images/bg4.avif'
-    image.onload = handleImageLoad
+    if (image.complete) reveal()
 
     return () => {
+      clearTimeout(timeout)
       image.onload = null
+      image.onerror = null
     }
   }, [])
 

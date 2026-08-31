@@ -1,8 +1,17 @@
 import { useState } from 'react'
+import type { StaticImageData } from 'next/image'
 import Socials from "./UI/Socials"
 import ProjectShow from './ProjectShow'
 import { motion, AnimatePresence } from "framer-motion"
 import { fadeInTransition } from './UI/Animations'
+import crowdworkPic from '../../../public/images/projects/crowdwork2.webp'
+import spyntaxPic from '../../../public/images/projects/spyntax.webp'
+import webflixPic from '../../../public/images/projects/webflix.webp'
+import coindexPic from '../../../public/images/projects/coindex.webp'
+import beatboiPic from '../../../public/images/projects/beatboi.webp'
+import memeboiPic from '../../../public/images/projects/memeboi.webp'
+import gorsPic from '../../../public/images/projects/gors.webp'
+import caseyrellsPic from '../../../public/images/projects/caseyrells.webp'
 
 interface ProjectsProps {
   handleNavClick: (index: number) => void
@@ -76,16 +85,16 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
     description: string
     siteLink: string
     githubLink: string
-    previewPicture: string
+    previewPicture: StaticImageData
   }[] = [
-    { title: "Crowdwork", description: "Intended to be a version 2 of my older app Spyntax, this platform lets users send chat messages and song requests to DJs using the Spotify API, in real-time. Built with Next.js, Node.js (Express), and WebSockets.", siteLink: "https://crowdwork.vercel.app/", githubLink: "https://github.com/caseycantrell/crowdwork-backend", previewPicture: "/images/projects/crowdwork2.png" },
-    { title: "Spyntax", description: "Real-time song request app for DJs, built with Vue.js on the frontend and a Ruby on Rails backend, using WebSockets for live communication.", siteLink: "https://spyntax.vercel.app/", githubLink: "https://github.com/caseycantrell/spyntax-app-backend", previewPicture: "/images/projects/spyntax.png" },
-    { title: "Webflix", description: "A clone of a popular video streaming service. Made with React, Firebase, Fuse.js, and Styled Components.", siteLink: "https://web-flix.netlify.app/", githubLink: "https://github.com/caseycantrell/webflix", previewPicture: "/images/projects/webflix.png" },
-    { title: "COINdex", description: "Info, news, and statistics on popular cryptocurrencies. Made in React with Redux, Axios, Chart.js, Millify, Moment, Ant Design components, Bing API, and the Coinranking API.", siteLink: "https://coindex2.netlify.app/", githubLink: "https://github.com/caseycantrell/coindex2", previewPicture: "/images/projects/coindex.png" },
-    { title: "Beatboi", description: "A clone of one of my favorite classic drum machines. Made with React.", siteLink: "https://beatboi.netlify.app/", githubLink: "https://github.com/caseycantrell/beatboi", previewPicture: "/images/projects/beatboi.png" },
-    { title: "Memeboi", description: "A simple meme generator just for funsies. Best viewed/used on a mobile device. Made with React and the Imgflip API.", siteLink: "https://memeboi.netlify.app/", githubLink: "https://github.com/caseycantrell/meme-boi", previewPicture: "/images/projects/memeboi.png" },
-    { title: "G.O.R.S.", description: "Static site for Goats Only Recording Studio. Made with HTML5 and Bootstrap.", siteLink: "https://www.goatsonlyrecordingstudio.com/", githubLink: "https://github.com/goatsonlyrecordingstudio/goatsonlyrecordingstudio.github.io", previewPicture: "/images/projects/gors.png" },
-    { title: "Casey Rells", description: "My other website for the DJ work I do outside of Software Engineering. Made with HTML5 and Bootstrap.", siteLink: "https://www.caseyrells.com/", githubLink: "https://github.com/caseyrells/caseyrells.github.io", previewPicture: "/images/projects/caseyrells.png" },
+    { title: "Crowdwork", description: "Intended to be a version 2 of my older app Spyntax, this platform lets users send chat messages and song requests to DJs using the Spotify API, in real-time. Built with Next.js, Node.js (Express), and WebSockets.", siteLink: "https://crowdwork.vercel.app/", githubLink: "https://github.com/caseycantrell/crowdwork-backend", previewPicture: crowdworkPic },
+    { title: "Spyntax", description: "Real-time song request app for DJs, built with Vue.js on the frontend and a Ruby on Rails backend, using WebSockets for live communication.", siteLink: "https://spyntax.vercel.app/", githubLink: "https://github.com/caseycantrell/spyntax-app-backend", previewPicture: spyntaxPic },
+    { title: "Webflix", description: "A clone of a popular video streaming service. Made with React, Firebase, Fuse.js, and Styled Components.", siteLink: "https://web-flix.netlify.app/", githubLink: "https://github.com/caseycantrell/webflix", previewPicture: webflixPic },
+    { title: "COINdex", description: "Info, news, and statistics on popular cryptocurrencies. Made in React with Redux, Axios, Chart.js, Millify, Moment, Ant Design components, Bing API, and the Coinranking API.", siteLink: "https://coindex2.netlify.app/", githubLink: "https://github.com/caseycantrell/coindex2", previewPicture: coindexPic },
+    { title: "Beatboi", description: "A clone of one of my favorite classic drum machines. Made with React.", siteLink: "https://beatboi.netlify.app/", githubLink: "https://github.com/caseycantrell/beatboi", previewPicture: beatboiPic },
+    { title: "Memeboi", description: "A simple meme generator just for funsies. Best viewed/used on a mobile device. Made with React and the Imgflip API.", siteLink: "https://memeboi.netlify.app/", githubLink: "https://github.com/caseycantrell/meme-boi", previewPicture: memeboiPic },
+    { title: "G.O.R.S.", description: "Static site for Goats Only Recording Studio. Made with HTML5 and Bootstrap.", siteLink: "https://www.goatsonlyrecordingstudio.com/", githubLink: "https://github.com/goatsonlyrecordingstudio/goatsonlyrecordingstudio.github.io", previewPicture: gorsPic },
+    { title: "Casey Rells", description: "My other website for the DJ work I do outside of Software Engineering. Made with HTML5 and Bootstrap.", siteLink: "https://www.caseyrells.com/", githubLink: "https://github.com/caseyrells/caseyrells.github.io", previewPicture: caseyrellsPic },
   ]
 
   return (
@@ -98,8 +107,12 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
         <div className="flex flex-col lg:grid lg:grid-cols-8 col-span-5 items-center justify-center relative">
 
           {/* mobile menu */}
-          <div className="flex flex-row lg:hidden justify-center" onClick={() => setShowProjectMenu(!showProjectMenu)}>
-            <p className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg cursor-pointer select-none'>Select Project</p>
+          <div className="flex flex-row lg:hidden justify-center">
+            <button
+              type="button"
+              aria-expanded={showProjectMenu}
+              onClick={() => setShowProjectMenu(!showProjectMenu)}
+              className='text-lg font-semibold border border-gray-900 rounded-md px-4 py-2 shadow-lg cursor-pointer select-none'>Select Project</button>
           </div>
           {showProjectMenu && (
             <motion.div 
@@ -108,11 +121,12 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
               variants={containerVariants}  
               className='w-80 flex flex-col items-center border-2 border-black bg-black bg-opacity-70 backdrop-blur-sm rounded-md py-6 gap-y-6 text-lg font-semibold absolute top-14 z-10 select-none'>
               {projectDetails.map((project, index) => (
-                <motion.div        
+                <motion.button        
+                  type="button"
                   variants={mobileFallInVariants} 
-                  key={index} 
+                  key={project.title} 
                   onClick={() => handleProjectClick(index)} 
-                  className="cursor-pointer text-white">{project.title}</motion.div>
+                  className="cursor-pointer text-white">{project.title}</motion.button>
               ))}
             </motion.div>
           )}
@@ -124,15 +138,16 @@ const Projects = ({ handleNavClick }: ProjectsProps) => {
             variants={containerVariants} 
             className="hidden lg:flex flex-col col-span-2 justify-center items-start text-2xl font-bold ml-12 gap-y-8">
               {projectDetails.map((project, index) => (
-                <motion.p
-                  key={index}
+                <motion.button
+                  type="button"
+                  key={project.title}
                   variants={fallInVariants}
                   whileHover={{ x: 10 }}
                   onClick={() => handleProjectClick(index)}
-                  className="cursor-pointer text-xl"
+                  className="cursor-pointer text-xl text-left"
                 >
                   {project.title}
-                </motion.p>
+                </motion.button>
               ))}
           </motion.div>
           <div className="lg:col-span-6">

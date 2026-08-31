@@ -4,9 +4,29 @@ import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
+const description = "Personal website for Casey Cantrell, a Full-Stack Software Engineer living in Austin, TX."
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.caseycantrell.com"),
   title: "Casey Cantrell",
-  description: "Personal website for Casey Cantrell, a Software Engineer living in Austin, TX.",
+  description,
+  keywords: ["Casey Cantrell", "Software Engineer", "Software Developer", "Full-Stack", "Backend", "Frontend", "Python", "Django", "Next.js", "React", "Ruby on Rails", "Austin", "Austin TX"],
+  authors: [{ name: "Casey Cantrell" }],
+  icons: { icon: "/icons/person.png" },
+  openGraph: {
+    title: "Casey Cantrell",
+    description,
+    url: "https://www.caseycantrell.com",
+    siteName: "Casey Cantrell",
+    images: ["/icons/person.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Casey Cantrell",
+    description,
+    images: ["/icons/person.png"],
+  },
 }
 
 export default function RootLayout({
@@ -16,20 +36,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Personal website for Casey Cantrell, a Software Engineer living in Austin, TX." />
-        <meta name="keywords" content="Casey Cantrell, Software Engineer, Software Developer, Full-Stack, Backend, Frontend, Next.js, React, Ruby on Rails, Austin, Austin TX" />
-        <meta name="author" content="Casey Cantrell" />
-        <meta property="og:title" content="Casey Cantrell" />
-        <meta property="og:description" content="Personal website for Casey Cantrell, a Software Engineer living in Austin, TX." />
-        <meta property="og:image" content="/icons/person.png" />
-        <meta property="og:url" content="https://www.caseycantrell.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="icon" href="/icons/person.png" />
-        <title>Casey Cantrell</title>
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import Image from "next/image"
+import Image, { type StaticImageData } from "next/image"
 import { useState } from "react"
 
 interface ProjectShowProps {
@@ -7,7 +7,7 @@ interface ProjectShowProps {
   description: string
   siteLink: string
   githubLink: string
-  previewPicture: string
+  previewPicture: StaticImageData
 }
 
 const containerVariants = {
@@ -72,10 +72,9 @@ const ProjectShow = ({ title, description, siteLink, githubLink, previewPicture 
           className="rounded-md"
           fill={true}
           style={{ objectFit: 'cover' }}
-          sizes="(min-width: 1200px) 325px, (max-width: 1199px) 425px, 425px"
-          alt="Project Image" 
+          sizes="(max-width: 1200px) 325px, 425px"
+          alt={`Screenshot of the ${title} project`}
           placeholder="blur" 
-          blurDataURL={previewPicture}  
         />
       </motion.a>
       <motion.div  

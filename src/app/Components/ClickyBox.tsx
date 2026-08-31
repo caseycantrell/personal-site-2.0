@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, MotionConfig } from 'framer-motion'
 import Home from './Home'
 import About from './About'
 import Skills from './Skills'
@@ -37,6 +37,7 @@ const ClickyBox: React.FC = () => {
   ]
 
   return (
+    <MotionConfig reducedMotion="user">
     <motion.div     
       initial="initial"
       animate="animate"
@@ -135,6 +136,7 @@ const ClickyBox: React.FC = () => {
         }
       `}</style>
     </motion.div>
+    </MotionConfig>
   )
 }
 
